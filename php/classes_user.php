@@ -37,7 +37,6 @@ class User
     public function connect($login, $password)
     {
         $sth = $this->pdo->prepare("SELECT * FROM utilisateurs WHERE login =?");
-
         $sth->execute(array($login));
         $res = $sth->fetch(PDO::FETCH_ASSOC);
         if ($login === $res['login'] && $password == $res['password']) {
@@ -56,8 +55,38 @@ class User
     public function disconnect()
     {
         if (isset($_SESSION)) {
-            echo('hello');
             session_unset();
+        }
+    }
+    public function update($login, $password, $email, $firstname, $lastname)
+    {
+        $log = $_SESSION['login'];
+        $sth = $this->pdo->prepare("SELECT id FROM utilisateurs WHERE login='$log'");
+        $sth->execute();
+        $res = $sth->fetch(PDO::FETCH_ASSOC);
+        $id = $res['id'];
+        $this->login = $login;
+        $this->email = $email;
+        $this->firstname = $firstname;
+        $this->lastname = $lastname;
+        $_SESSION['login'] = $login;
+        $_SESSION['password'] = $password;
+        try {
+            $sth2 = $this->pdo->prepare("UPDATE utilisateurs SET login = ?,password = ?,email = ?,firstname = ?,lastname =? WHERE id=$id");
+            $sth2->execute(array($login, $password, $email, $firstname, $lastname));
+        } catch (Exception $e) {
+            echo 'Exception reçue : ', $e->getMessage(), "\n";
+
+        }
+
+
+    }
+    public function isConnected()
+    {
+        if (isset($_SESSION['login'])) {
+            return true;
+        } else {
+            return false;
         }
     }
 }
