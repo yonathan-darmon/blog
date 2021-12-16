@@ -22,12 +22,12 @@ class User
         } catch (Exception $e) {
             echo 'Exception reçue : ', $e->getMessage(), "\n";
         }
-        $res = $req->fetchAll(PDO::FETCH_ASSOC);
+        $res = $req->fetch(PDO::FETCH_ASSOC);
         if ($res == false) {
             try {
                 $sth = $this->pdo->prepare("INSERT INTO utilisateurs(login, password, email, id_droits) VALUES (?,?,?,?)");
                 $droits=1;
-                $sth->execute(array($login, $password, $email, $droits));
+                $sth->execute(array($login, password_hash($password, PASSWORD_DEFAULT), $email, $droits));
             } catch (Exception $e) {
                 echo 'Exception reçue : ', $e->getMessage(), "\n";
             }
@@ -39,8 +39,8 @@ class User
     {
         $sth = $this->pdo->prepare("SELECT * FROM utilisateurs WHERE login =?");
         $sth->execute(array($login));
-        $res = $sth->fetchAll(PDO::FETCH_ASSOC);
-        if ($login === $res['login'] && $password == $res['password']) {
+        $res = $sth->fetch(PDO::FETCH_ASSOC);
+        if ($login === $res['login'] && password_verify($password ,$res['password'] )) {
             $this->id=$res['id'];
             $this->login = $login;
             $this->email = $res['email'];
@@ -64,7 +64,7 @@ class User
         $log = $_SESSION['login'];
         $sth = $this->pdo->prepare("SELECT id FROM utilisateurs WHERE login='$log'");
         $sth->execute();
-        $res = $sth->fetchAll(PDO::FETCH_ASSOC);
+        $res = $sth->fetch(PDO::FETCH_ASSOC);
         $this->login = $login;
         $this->email = $email;
         $_SESSION['login'] = $login;
@@ -91,8 +91,10 @@ class User
 
     public function getDroits($droits)
     {
-        $sth = $this->pdo->prepare("SELECT id_droits FROM utilisateurs WHERE id=$this->id");
+        $sth = $this->pdo->prepare("SELECT id_droits FROM utilisateurs WHERE id=$droits");
         $sth->execute();
+        $res=$sth->fetchAll(PDO::FETCH_ASSOC);
+        return $res;
     }
 
 }
