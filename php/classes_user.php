@@ -13,7 +13,7 @@ class User
     {
         $this->pdo = new PDO('mysql:host=localhost;dbname=blog', 'root');
     }
-    public function register($login, $password, $email, $droits)
+    public function register($login, $password, $email)
     {
         try {
             $req = $this->pdo->prepare("SELECT * FROM utilisateurs WHERE login=?");
@@ -22,10 +22,11 @@ class User
         } catch (Exception $e) {
             echo 'Exception reçue : ', $e->getMessage(), "\n";
         }
-        $res = $req->fetch(PDO::FETCH_ASSOC);
+        $res = $req->fetchAll(PDO::FETCH_ASSOC);
         if ($res == false) {
             try {
                 $sth = $this->pdo->prepare("INSERT INTO utilisateurs(login, password, email, id_droits) VALUES (?,?,?,?)");
+                $droits=1;
                 $sth->execute(array($login, $password, $email, $droits));
             } catch (Exception $e) {
                 echo 'Exception reçue : ', $e->getMessage(), "\n";
@@ -38,14 +39,14 @@ class User
     {
         $sth = $this->pdo->prepare("SELECT * FROM utilisateurs WHERE login =?");
         $sth->execute(array($login));
-        $res = $sth->fetch(PDO::FETCH_ASSOC);
+        $res = $sth->fetchAll(PDO::FETCH_ASSOC);
         if ($login === $res['login'] && $password == $res['password']) {
+            $this->id=$res['id'];
             $this->login = $login;
             $this->email = $res['email'];
-            $this->firstname = $res['firstname'];
-            $this->lastname = $res['lastname'];
+            $this->droits=$res['id_droits'];
             $_SESSION['login'] = $login;
-            $_SESSION['password'] = $password;
+            $_SESSION['id'] = $res['id'];
 
         } else {
             echo 'Verifiez Login ou Mot de passe';
@@ -58,22 +59,20 @@ class User
             session_unset();
         }
     }
-    public function update($login, $password, $email, $firstname, $lastname)
+    public function update($login, $password, $email)
     {
         $log = $_SESSION['login'];
         $sth = $this->pdo->prepare("SELECT id FROM utilisateurs WHERE login='$log'");
         $sth->execute();
-        $res = $sth->fetch(PDO::FETCH_ASSOC);
-        $id = $res['id'];
+        $res = $sth->fetchAll(PDO::FETCH_ASSOC);
         $this->login = $login;
         $this->email = $email;
-        $this->firstname = $firstname;
-        $this->lastname = $lastname;
         $_SESSION['login'] = $login;
-        $_SESSION['password'] = $password;
+        $id=$_SESSION['id'];
         try {
-            $sth2 = $this->pdo->prepare("UPDATE utilisateurs SET login = ?,password = ?,email = ?,firstname = ?,lastname =? WHERE id=$id");
-            $sth2->execute(array($login, $password, $email, $firstname, $lastname));
+
+            $sth2 = $this->pdo->prepare("UPDATE utilisateurs SET login = ?,password = ?,email = ? WHERE id=$id");
+            $sth2->execute(array($login, $password, $email));
         } catch (Exception $e) {
             echo 'Exception reçue : ', $e->getMessage(), "\n";
 
@@ -89,4 +88,11 @@ class User
             return false;
         }
     }
+
+    public function getDroits($droits)
+    {
+        $sth = $this->pdo->prepare("SELECT id_droits FROM utilisateurs WHERE id=$this->id");
+        $sth->execute();
+    }
+
 }

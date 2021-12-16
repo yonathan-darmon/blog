@@ -14,10 +14,13 @@ class Article
         $this->pdo = new PDO('mysql:host=localhost;dbname=blog', 'root');
     }
 
-    public function creation($article, $id_utilisateur, $id_categorie, $date)
+    public function creation($article, $id_utilisateur, $id_categorie)
     {
+
         $sth = $this->pdo->prepare("INSERT INTO articles(article,id_utilisateur,id_categori,date) VALUES(?,?,?,?)");
+        $date=time();
         $sth->execute(array($article, $id_utilisateur, $id_categorie, $date));
+
 
     }
 }
