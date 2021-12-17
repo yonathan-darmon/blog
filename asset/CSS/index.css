@@ -1,16 +1,23 @@
-*{
-    margin: 0 ;
+* {
+    margin: 0;
     padding: 0;
     box-sizing: border-box;
 
 }
-html{
-    background-image: url("../IMAGE/ramshouse.jpg");
-    background-size: cover;
+
+html {
+    width: 100vw;
+    height: 100vh;
 }
 
-main{
+main {
     width: 100%;
     height: 85vh;
+    background-image: url("../IMAGE/ramshouse.jpg");
+    background-size: cover;
 
+}
+footer{
+    width: 100%;
+    height: 100%;
 }

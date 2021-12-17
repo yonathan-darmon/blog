@@ -1,4 +1,4 @@
-<nav>
+<nav class="footer">
     <ul>
         <li><a href="../index.php">Accueil</a></li>
 
