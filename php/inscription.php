@@ -3,6 +3,11 @@ session_start();
 require "classes_user.php";
 require "classes-categorie.php";
 require "classe_article.php";
+if(isset($_POST['submit'])){
+    if(empty($_POST['login']) || empty($_POST['password']) || empty($_POST['email']) || empty($_POST['confirm'])){
+$error1="<p class='error1'>Veuillez remplir tout les champs!</p>";
+    }
+}
 
 ?>
 <!doctype html>
@@ -22,28 +27,35 @@ require "classe_article.php";
 </head>
 <body>
 <header>
-    <?php require "header.php";?>
+    <?php require "header.php"; ?>
 </header>
 <main>
-<div class="container">
-    <img src="../asset/IMAGE/aaron-donald.jpg" alt="aaron-donald" class="gauche">
-    <form  action="#"method="post" class="inscription">
-        <label for="login">Nom d'utilisateur</label>
-        <input type="text" name="login" placeholder="Entrez votre Nom d'utilisateur">
-        <label for="email">Votre Email</label>
-        <input type="text" name="email" placeholder="Entrez votre email">
-        <label for="password">Mot de passe</label>
-        <input type="password" name="password" placeholder="Votre mot de passe">
-        <label for="confirm">Confirmation de votre mot de passe</label>
-        <input type="password" name="confirm" placeholder=" Votre mot de passe">
-        <label for="droits">Vos droits utilisateurs</label>
-        <input type="text" name="droits" value="utilisateur" readonly>
-        <p>Vos droits utilisateurs pourront etre changer par l'adminstrateur</p></p>
-    </form>
-</div>
+    <?php
+    if (isset($error1)){
+        echo $error1;
+    }
+    ?>
+    <h1 class="titre">Rejoignez la Rams family!</h1>
+    <div class="container">
+        <img src="../asset/IMAGE/aaron-donald.jpg" alt="aaron-donald" class="gauche">
+        <form action="#" method="post" class="inscription">
+            <label for="login">Nom d'utilisateur</label>
+            <input type="text" name="login" placeholder="Entrez votre Nom d'utilisateur">
+            <label for="email">Votre Email</label>
+            <input type="text" name="email" placeholder="Entrez votre email">
+            <label for="password">Mot de passe</label>
+            <input type="password" name="password" placeholder="Votre mot de passe">
+            <label for="confirm">Confirmation de votre mot de passe</label>
+            <input type="password" name="confirm" placeholder=" Votre mot de passe">
+            <label for="droits">Vos droits utilisateurs</label>
+            <input type="text" name="droits" value="utilisateur" readonly>
+            <input type="submit" class="btn" name="submit">Enregistrez-vous!</input>
+            <p>Vos droits utilisateurs pourront être changé par l'administrateur</p></p>
+        </form>
+    </div>
 </main>
 <footer>
-    <?php require "footer.php";?>
+    <?php require "footer.php"; ?>
 </footer>
 </body>
 </html>

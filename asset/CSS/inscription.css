@@ -8,26 +8,69 @@
 html {
     width: 100vw;
     height: 100vh;
+    background-color:#e3dac9;
+
 }
 
 main {
     width: 100%;
-    height: 85vh;
+    height: auto;
     background-color: #e3dac9;
 
 }
-.container{
+
+@font-face {
+    font-family: 'Far From';
+    src: url('http://localhost/blog/blog/asset/FONT/Far-From Homecoming Updated.otf') format('opentype');
+}
+.error1{
+    background-color: red;
+    color: white;
+    text-align: center;
+    font-size: x-large;
+    animation: entrance 2s ease-in-out 0s 1 normal forwards,
+                 outro 1s ease-in-out 2s 1 normal forwards;
+}
+@keyframes entrance {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+@keyframes outro {
+    0% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+.titre {
+    font-family: "Far From";
+    color: #FF8200;
+    text-align: center;
+    font-size: 3rem;
+}
+
+.container {
     display: flex;
     width: 100%;
     gap: 50px;
     padding-top: 50px;
+
 }
-.gauche{
+
+.gauche {
     width: 50%;
     height: auto;
 }
-.inscription{
-display:flex;
+
+.inscription {
+    display: flex;
     flex-direction: column;
     justify-content: space-around;
     width: 20%;
@@ -36,12 +79,19 @@ display:flex;
     line-height: 1.5rem;
     font-size: x-large;
     font-weight: bold;
-    font-family: 'Open Sans', sans-serif;
+    font-family: "Far From", serif;
 }
-.inscription input{
+
+.inscription input {
     background-color: transparent;
     border-top: none;
     border-left: none;
-    border-right:none;
+    border-right: none;
     border-bottom: black solid 2px;
+}
+.btn{
+    background: transparent;
+    border-radius: 15px;
+    border-top: solid 1px;
+    width: 50%;
 }
