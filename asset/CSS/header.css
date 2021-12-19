@@ -1,6 +1,6 @@
 nav ul {
     width: 100%;
-    height: 90px;
+    height: 200px;
     background-image: url("../IMAGE/wave.png");
     background-size: cover;
     text-align: center;
@@ -26,6 +26,10 @@ nav li a {
     font-size: xx-large;
     box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
     border-radius: 5px;
+}
+
+nav li a:hover {
+    background-color: #003594;
 }
 
 .dropdown {
@@ -68,8 +72,8 @@ nav li a {
 
 .footer ul {
     width: 100%;
-    height: 80px;
-background-image: url("../IMAGE/wave 2.png");
+    height: 200px;
+    background-image: url("../IMAGE/wave 2.png");
     text-align: center;
     display: flex;
     flex-direction: row;

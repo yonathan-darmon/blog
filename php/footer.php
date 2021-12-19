@@ -5,7 +5,7 @@
         <li><a href="article.php">Article</a></li>
         <?php
         if (!isset($_SESSION['id'])) {
-            echo "<li><a href='inscription.php'>Inscritpion</a></li>";
+            echo "<li><a href='inscription.php'>Inscription</a></li>";
             echo "<li><a href='connexion.php'>Connexion</a></li>";
         } else {
             echo "<li><a href='profil.php'>Profil</a></li>";

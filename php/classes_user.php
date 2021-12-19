@@ -13,6 +13,7 @@ class User
     {
         $this->pdo = new PDO('mysql:host=localhost;dbname=blog', 'root');
     }
+
     public function register($login, $password, $email)
     {
         try {
@@ -26,13 +27,18 @@ class User
         if ($res == false) {
             try {
                 $sth = $this->pdo->prepare("INSERT INTO utilisateurs(login, password, email, id_droits) VALUES (?,?,?,?)");
-                $droits=1;
+                $droits = 1;
                 $sth->execute(array($login, password_hash($password, PASSWORD_DEFAULT), $email, $droits));
+                $confirmation = '<p class="confirmation">Bienvenue ' . $_POST['login'] . ' dans la Rams Family</p>';
+                echo $confirmation;
             } catch (Exception $e) {
                 echo 'Exception reçue : ', $e->getMessage(), "\n";
             }
+        } elseif ($res == true) {
+
+            $error2 = "<p class='error1'>Ce Nom d'utilisateur existe déjà</p>";
+            echo $error2;
         }
-        return [$login, $password, $email,$droits];
     }
 
     public function connect($login, $password)
@@ -40,11 +46,11 @@ class User
         $sth = $this->pdo->prepare("SELECT * FROM utilisateurs WHERE login =?");
         $sth->execute(array($login));
         $res = $sth->fetch(PDO::FETCH_ASSOC);
-        if ($login === $res['login'] && password_verify($password ,$res['password'] )) {
-            $this->id=$res['id'];
+        if ($login === $res['login'] && password_verify($password, $res['password'])) {
+            $this->id = $res['id'];
             $this->login = $login;
             $this->email = $res['email'];
-            $this->droits=$res['id_droits'];
+            $this->droits = $res['id_droits'];
             $_SESSION['login'] = $login;
             $_SESSION['id'] = $res['id'];
 
@@ -59,6 +65,7 @@ class User
             session_unset();
         }
     }
+
     public function update($login, $password, $email)
     {
         $log = $_SESSION['login'];
@@ -68,7 +75,7 @@ class User
         $this->login = $login;
         $this->email = $email;
         $_SESSION['login'] = $login;
-        $id=$_SESSION['id'];
+        $id = $_SESSION['id'];
         try {
 
             $sth2 = $this->pdo->prepare("UPDATE utilisateurs SET login = ?,password = ?,email = ? WHERE id=$id");
@@ -80,6 +87,7 @@ class User
 
 
     }
+
     public function isConnected()
     {
         if (isset($_SESSION['login'])) {
@@ -93,7 +101,7 @@ class User
     {
         $sth = $this->pdo->prepare("SELECT id_droits FROM utilisateurs WHERE id=$droits");
         $sth->execute();
-        $res=$sth->fetchAll(PDO::FETCH_ASSOC);
+        $res = $sth->fetchAll(PDO::FETCH_ASSOC);
         return $res;
     }
 

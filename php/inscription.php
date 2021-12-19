@@ -3,9 +3,17 @@ session_start();
 require "classes_user.php";
 require "classes-categorie.php";
 require "classe_article.php";
-if(isset($_POST['submit'])){
-    if(empty($_POST['login']) || empty($_POST['password']) || empty($_POST['email']) || empty($_POST['confirm'])){
-$error1="<p class='error1'>Veuillez remplir tout les champs!</p>";
+if (isset($_POST['submit'])) {
+    if (empty($_POST['login']) || empty($_POST['password']) || empty($_POST['email']) || empty($_POST['confirm'])) {
+        echo "<p class='error1'>Veuillez remplir tout les champs!</p>";
+    } elseif ($_POST['password'] != $_POST['confirm']) {
+        echo "<p class='error1'>Verifiez votre mot de passe</p> ";
+    } else {
+        $register = new User();
+        $register->register($_POST['login'], $_POST['password'], $_POST['email']);
+        header('Refresh 3, url=connexion.php');
+
+
     }
 }
 
@@ -30,11 +38,7 @@ $error1="<p class='error1'>Veuillez remplir tout les champs!</p>";
     <?php require "header.php"; ?>
 </header>
 <main>
-    <?php
-    if (isset($error1)){
-        echo $error1;
-    }
-    ?>
+
     <h1 class="titre">Rejoignez la Rams family!</h1>
     <div class="container">
         <img src="../asset/IMAGE/aaron-donald.jpg" alt="aaron-donald" class="gauche">
