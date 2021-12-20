@@ -18,7 +18,7 @@ $res5 = $info->getDroits($res4[0]['id_droits']);
     <link rel="stylesheet" href="../asset/CSS/header.css">
     <link rel="stylesheet" href="../asset/CSS/inscription.css">
     <link rel="icon" type="image/png" href="../asset/IMAGE/android-icon-192x192.png">
-    <title>Document</title>
+    <title>Profil</title>
 </head>
 <body>
 <header>

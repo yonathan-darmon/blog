@@ -31,7 +31,7 @@ if (isset($_POST['submit'])) {
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
     </style>
-    <title>Document</title>
+    <title>Inscription</title>
 </head>
 <body>
 <header>

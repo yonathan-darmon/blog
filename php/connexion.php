@@ -14,7 +14,9 @@ require "classes-categorie.php";
     <link rel="stylesheet" href="../asset/CSS/header.css">
     <link rel="stylesheet" href="../asset/CSS/connexion.css">
     <link rel="icon" type="image/png" href="../asset/IMAGE/android-icon-192x192.png">
-    <title>Document</title>
+    <link rel="icon" type="image/png" href="../asset/IMAGE/android-icon-192x192.png">
+
+    <title>Connexion</title>
 </head>
 <body>
 <header>
