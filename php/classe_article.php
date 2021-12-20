@@ -23,4 +23,12 @@ class Article
 
 
     }
+
+    public function get5Article($get)
+    {
+        $sth=$this->pdo->prepare("SELECT article FROM articles  ORDER BY date DESC LIMIT '$get',5 ");
+        $sth->execute();
+
+    }
+
 }

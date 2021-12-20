@@ -2,7 +2,7 @@
     <ul>
         <li><a href="../index.php">Accueil</a></li>
 
-        <li><a href="articles.php">Article</a></li>
+        <li><a href="articles.php?start=0">Article</a></li>
         <?php
         if (!isset($_SESSION['id'])) {
             echo "<li><a href='inscription.php'>Inscription</a></li>";
