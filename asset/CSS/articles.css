@@ -1,8 +1,26 @@
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
+
 html {
     background-color: #e3dac9;
+}
+
+.container {
+    display: flex;
+    gap: 15px;
+    flex-wrap: nowrap;
+}
+
+.article {
+    border: 2px solid black;
+    border-radius: 5px;
+}
+
+.text {
+    font-size: x-large;
+    font-weight: bold;
+
 }

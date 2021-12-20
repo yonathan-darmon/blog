@@ -1,5 +1,7 @@
 <?php
-class Categorie{
+
+class Categorie
+{
     private $id;
     public $nom;
     private $pdo;
@@ -11,9 +13,9 @@ class Categorie{
 
     public function getcatego()
     {
-        $sth=$this->pdo->prepare("SELECT * FROM categories ");
+        $sth = $this->pdo->prepare("SELECT * FROM categories ");
         $sth->execute();
-        $res=$sth->fetchAll(PDO::FETCH_ASSOC);
+        $res = $sth->fetchAll(PDO::FETCH_ASSOC);
         return $res;
     }
 }

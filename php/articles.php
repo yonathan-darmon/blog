@@ -24,7 +24,35 @@ require "classes-categorie.php";
     ?>
 </header>
 <main>
+    <div class="container">
+        <?php
+        $article = new Article();
+        if (isset($_GET['categorie'])) {
+            $res = $article->get5Article($_GET['start'], $_GET['categorie']);
+            for ($i = 0; isset($res[$i]); $i++) {
+                echo "<div class='article'>";
+                echo '<p class=text>' . $res[$i]['article'] . '</p>';
+                if ($res[$i]['active'] == 0) {
+                    echo '<p class= login' . $i . '>Ecrit par ' . $res[$i]['login'] . '</p>';
+                    $date = strtotime($res[$i]['date']);
+                    echo '<p class=date' . $i . '> le ' . date('d/m/Y H:i', $date) . '</p>';
+                } else {
+                    echo '<p class= login' . $i . '>Ecrit par Utilisateur</p>';
+                    $date = strtotime($res[$i]['date']);
+                    echo '<p class=date' . $i . '> le ' . date('d/m/Y H:i', $date) . '</p>';
+                }
+                echo "</div>";
+            }
+        } else {
+            $res = $article->get5Article($_GET['start']);
+            for ($i = 0; isset($res[$i]); $i++) {
 
+                echo '<p class=article>' . $res[$i]['article'] . '</p>';
+            }
+
+        }
+        ?>
+    </div>
 </main>
 <footer>
     <?php

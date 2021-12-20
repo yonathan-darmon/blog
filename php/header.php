@@ -11,7 +11,7 @@
                 $catego = new Categorie();
                 $cat = $catego->getcatego();
                 for ($i = 0; isset($cat["$i"]); $i++) {
-                    echo '<li><a href="http://localhost/blog/blog/php/articles.php?start=0?categorie=' . $cat["$i"]['id'] . '">' . $cat["$i"]['nom'] . '</a>';
+                    echo '<li><a href="http://localhost/blog/blog/php/articles.php?start=0&categorie=' . $cat["$i"]['id'] . '">' . $cat["$i"]['nom'] . '</a>';
                 }
                 ?>
             </ul>
@@ -32,8 +32,8 @@
         }
         $test = new User();
         if (isset($_SESSION['id'])) {
-            $res=$test->getAllInfo($_SESSION['login']);
-            if ($res[0]['id_droits']== 42 || $res[0]['id_droits']== 1337) {
+            $res = $test->getAllInfo($_SESSION['login']);
+            if ($res[0]['id_droits'] == 42 || $res[0]['id_droits'] == 1337) {
                 echo "<li><a href='http://localhost/blog/blog/php/creer-article.php'>Créer un article</a></li>";
             }
             if ($res[0]['id_droits'] == 1337) {

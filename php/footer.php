@@ -12,15 +12,16 @@
         }
         $test = new User();
         if (isset($_SESSION['id'])) {
-            $test->getDroits($_SESSION['id']);
-            if ($test->droits == 42 || $test->droits == 1337) {
-                echo "<li><a href='creer-article.php'>Créer un article</a></li>";
+            $res = $test->getAllInfo($_SESSION['login']);
+            if ($res[0]['id_droits'] == 42 || $res[0]['id_droits'] == 1337) {
+                echo "<li><a href='http://localhost/blog/blog/php/creer-article.php'>Créer un article</a></li>";
             }
-            if ($test->droits == 1337) {
-                echo "<li><a href='admin.php'>Page Admin</a></li>";
+            if ($res[0]['id_droits'] == 1337) {
+                echo "<li><a href='http://localhost/blog/blog/php/admin.php'>Page Admin</a></li>";
 
             }
         }
+
         ?>
 
     </ul>
