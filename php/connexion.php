@@ -13,6 +13,7 @@ require "classes-categorie.php";
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="../asset/CSS/header.css">
     <link rel="stylesheet" href="../asset/CSS/connexion.css">
+    <link rel="icon" type="image/png" href="../asset/IMAGE/android-icon-192x192.png">
     <title>Document</title>
 </head>
 <body>
