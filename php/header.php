@@ -23,7 +23,7 @@
             echo "<li><a href='http://localhost/blog/blog/php/connexion.php'>Connexion</a></li>";
         } else {
             echo "<li><a href='http://localhost/blog/blog/php/profil.php'>Profil</a></li>";
-            echo "<li><form action='#' method='post' class='deco'><input type='submit' name='deco' value='deco'></form></li>";
+
 
         }
         if (isset($_POST['deco'])) {
@@ -32,14 +32,15 @@
         }
         $test = new User();
         if (isset($_SESSION['id'])) {
-            $test->getDroits($_SESSION['id']);
-            if ($test->droits == 42 || $test->droits == 1337) {
+            $res=$test->getAllInfo($_SESSION['login']);
+            if ($res[0]['id_droits']== 42 || $res[0]['id_droits']== 1337) {
                 echo "<li><a href='http://localhost/blog/blog/php/creer-article.php'>Créer un article</a></li>";
             }
-            if ($test->droits == 1337) {
+            if ($res[0]['id_droits'] == 1337) {
                 echo "<li><a href='http://localhost/blog/blog/php/admin.php'>Page Admin</a></li>";
 
             }
+            echo "<li><form action='#' method='post' class='deco'><input type='submit' name='deco' value='deco'></form></li>";
         }
         ?>
 
