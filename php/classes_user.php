@@ -49,13 +49,16 @@ class User
         if ($login === $res['login'] && password_verify($password, $res['password'])) {
             $this->id = $res['id'];
             $this->login = $login;
+            $this->password = $password;
             $this->email = $res['email'];
             $this->droits = $res['id_droits'];
             $_SESSION['login'] = $login;
             $_SESSION['id'] = $res['id'];
+            echo "<p class='confirmation'>Vous êtes bien connecté</p>";
+            header('Refresh:3; URL=connexion.php');
 
         } else {
-            echo 'Verifiez Login ou Mot de passe';
+            echo '<p class="error1">Verifiez Login ou Mot de passe</p>';
         }
     }
 
@@ -63,6 +66,7 @@ class User
     {
         if (isset($_SESSION)) {
             session_unset();
+            header("location: connexion.php");
         }
     }
 

@@ -23,7 +23,7 @@
             echo "<li><a href='http://localhost/blog/blog/php/connexion.php'>Connexion</a></li>";
         } else {
             echo "<li><a href='http://localhost/blog/blog/php/profil.php'>Profil</a></li>";
-            echo "<li><form action='#' method='post'><input type='submit' name='deco' value='deco'></form></li>";
+            echo "<li><form action='#' method='post' class='deco'><input type='submit' name='deco' value='deco'></form></li>";
 
         }
         if (isset($_POST['deco'])) {

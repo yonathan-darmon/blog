@@ -1,0 +1,87 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    background-color: #e3dac9;
+}
+
+.container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.ball {
+    width: 40%;
+    height: auto;
+    transform: rotate(8deg);
+    z-index: -1;
+    opacity: 0.8;
+}
+
+@font-face {
+    font-family: 'Far From';
+    src: url('http://localhost/blog/blog/asset/FONT/Far-From Homecoming Updated.otf') format('opentype');
+}
+
+.error1 {
+    background-color: red;
+    color: white;
+    text-align: center;
+    font-size: x-large;
+    animation: entrance 2s ease-in-out 0s 1 normal forwards,
+    outro 1s ease-in-out 2s 1 normal forwards;
+}
+
+.confirmation {
+    background-color: limegreen;
+    color: white;
+    text-align: center;
+    font-size: x-large;
+    animation: entrance 2s ease-in-out 0s 1 normal forwards,
+    outro 2s ease-in-out 2s 1 normal forwards;
+}
+
+@keyframes entrance {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes outro {
+    0% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+.connect {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    position: absolute;
+    top: 27%;
+    left: 42%;
+    font-family: "Far From", sans-serif;
+    color: #FF8200;
+    font-size: 2rem;
+    font-weight: bold;
+
+}
+
+input {
+    width: 45%;
+    border-radius: 5px;
+}
