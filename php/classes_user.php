@@ -70,29 +70,55 @@ class User
         }
     }
 
-    public function update($login, $password, $email)
+    public function getLogin($login)
     {
-        $log = $_SESSION['login'];
-        $sth = $this->pdo->prepare("SELECT id FROM utilisateurs WHERE login='$log'");
+        $sth = $this->pdo->prepare("SELECT login FROM utilisateurs WHERE login='$login' ");
         $sth->execute();
-        $res = $sth->fetch(PDO::FETCH_ASSOC);
-        $this->login = $login;
-        $this->email = $email;
-        $_SESSION['login'] = $login;
-        $id = $_SESSION['id'];
-        try {
-
-            $sth2 = $this->pdo->prepare("UPDATE utilisateurs SET login = ?,password = ?,email = ? WHERE id=$id");
-            $sth2->execute(array($login, $password, $email));
-        } catch (Exception $e) {
-            echo 'Exception reçue : ', $e->getMessage(), "\n";
-
-        }
-
+        return $sth->fetchAll(PDO::FETCH_ASSOC);
 
     }
 
-    public function isConnected()
+    public function getAllInfo($login)
+    {
+        $sth = $this->pdo->prepare("SELECT * FROM utilisateurs WHERE login='$login'");
+        $sth->execute();
+        return $sth->fetchAll(PDO::FETCH_ASSOC);
+
+    }
+
+    public function update($login, $password, $email)
+    {
+
+        $res3 = $this->getLogin($login);
+        if (empty($res3)) {
+
+            $log = $_SESSION['login'];
+            $sth = $this->pdo->prepare("SELECT id FROM utilisateurs WHERE login='$log'");
+            $sth->execute();
+            $res = $sth->fetch(PDO::FETCH_ASSOC);
+            $this->login = $login;
+            $this->email = $email;
+            $this->password = $password;
+            $_SESSION['login'] = $login;
+            $id = $_SESSION['id'];
+            try {
+
+                $sth2 = $this->pdo->prepare("UPDATE utilisateurs SET login = ?,password = ?,email = ? WHERE id=$id");
+                $sth2->execute(array($login, password_hash($password, PASSWORD_DEFAULT), $email));
+                echo "<p class='confirmation'>Modifications effectuées</p>";
+            } catch (Exception $e) {
+                echo 'Exception reçue : ', $e->getMessage(), "\n";
+
+            }
+
+
+        } else {
+            echo "<p class='error1'>Ce login existe déjà</p>";
+        }
+    }
+
+    public
+    function isConnected()
     {
         if (isset($_SESSION['login'])) {
             return true;
@@ -101,12 +127,14 @@ class User
         }
     }
 
-    public function getDroits($droits)
+    public
+    function getDroits($droits)
     {
-        $sth = $this->pdo->prepare("SELECT id_droits FROM utilisateurs WHERE id=$droits");
+        $sth = $this->pdo->prepare("SELECT nom FROM droits WHERE id=$droits");
         $sth->execute();
         $res = $sth->fetchAll(PDO::FETCH_ASSOC);
         return $res;
     }
+
 
 }
