@@ -24,9 +24,15 @@ class Article
 
     }
 
-    public function get5Article($get)
+    public function get5Article($get,$categorie='')
     {
-        $sth=$this->pdo->prepare("SELECT article FROM articles  ORDER BY date DESC LIMIT '$get',5 ");
+
+        if (empty($categorie)) {
+            $sth = $this->pdo->prepare("SELECT article FROM articles  ORDER BY date DESC LIMIT '$get',5 ");
+        }
+        else{
+            $sth=$this->pdo->prepare("SELECT article FROM articles WHERE id_categorie =$categorie ORDER BY date DESC  LIMIT '$get',5");
+        }
         $sth->execute();
 
     }
