@@ -6,6 +6,7 @@ require "classes_user.php";
 $info = new User();
 $res4 = $info->getAllInfo($_SESSION['login']);
 $res5 = $info->getDroits($res4[0]['id_droits']);
+
 ?>
 <!doctype html>
 <html lang="en">

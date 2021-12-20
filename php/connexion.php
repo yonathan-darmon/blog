@@ -34,10 +34,6 @@ require "classes-categorie.php";
         }
 
     }
-    if (isset($_POST['deco'])) {
-        $disconnect = new User();
-        $disconnect->disconnect();
-    }
     ?>
     <div class="container">
         <img class="ball" src="../asset/IMAGE/ball.jpeg" alt="ballon">

@@ -16,10 +16,7 @@ if (isset($_POST['submit'])) {
 
     }
 }
-if (isset($_POST['deco'])) {
-    $disconnect = new User();
-    $disconnect->disconnect();
-}
+
 ?>
 <!doctype html>
 <html lang="en">
