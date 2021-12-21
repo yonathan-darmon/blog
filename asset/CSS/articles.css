@@ -11,6 +11,8 @@ html {
 .container {
     display: flex;
     gap: 15px;
+    justify-content: center;
+    align-items: center;
     flex-wrap: nowrap;
 }
 
@@ -19,8 +21,32 @@ html {
     border-radius: 5px;
 }
 
+.article:hover {
+    transform: scale(2);
+    background-color: #e3dac9;
+}
+
 .text {
     font-size: x-large;
     font-weight: bold;
 
+}
+.chevron{
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+}
+.chevron input{
+    width: 5%;
+    height: 50px;
+    background-color: transparent;
+
+}
+.gauche{
+    background-image: url("../IMAGE/chevron gauche.jpg");
+    background-size: contain;
+}
+.droite{
+    background-image: url("../IMAGE/chevron droite.jpg");
+    background-size: contain;
 }
