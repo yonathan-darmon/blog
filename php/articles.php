@@ -67,12 +67,14 @@ require "classes-categorie.php";
     </div>
     <?php
     $test = $_GET['start'];
+    $test2=$_GET['categorie'];
+
     if (isset($_GET['gauche'])) {
         $test = $test - 5;
-        header("Refresh:0;URL =articles.php?start=$test");
+        header("Refresh:0;URL =articles.php?start=$test&categorie=$test2");
     } elseif (isset($_GET['droite'])) {
         $test = $test + 5;
-        header("Refresh:0;URL =articles.php?start=$test");
+        header("Refresh:0;URL =articles.php?start=$test&categorie=$test2");
 
     }
     if ($_GET['start'] == 0) {
@@ -80,7 +82,7 @@ require "classes-categorie.php";
         echo "<form action='#' method='get' class='chevron'>";
         echo "<input type='hidden' name='start' value='$test'>";
         echo '<input type="submit" name="droite" class="droite"  value="" readonly>';
-    } elseif ($_GET['start'] > 0) {
+    } elseif ($_GET['start'] > 0 && !empty($res)) {
         echo "<form action='#' method='get' class='chevron'>";
         echo "<input type='hidden' name='start' value='$test'>";
         echo '<input type="submit" name="gauche" class="gauche" value=""  readonly>';

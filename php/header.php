@@ -3,7 +3,7 @@
         <img class="logo" src="http://localhost/blog/blog/asset/IMAGE/la-rams-logo-1.png" alt="">
         <li><a href="../index.php">Accueil</a></li>
 
-        <li class="dropdown"><a href="http://localhost/blog/blog/php/articles.php?start=0">Articles</a>
+        <li class="dropdown"><a href="http://localhost/blog/blog/php/articles.php?start=0&categorie=0">Articles</a>
 
 
             <ul class="dropdown-content">
