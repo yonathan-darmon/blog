@@ -3,6 +3,15 @@ session_start();
 require "classes_user.php";
 require "classe_article.php";
 require "classes-categorie.php";
+if (isset($_GET['categorie'])) {
+    $_SESSION['categorie'] = $_GET['categorie'];
+
+}
+if (isset($_GET['start'])) {
+    $_SESSION['start'] = $_GET['start'];
+}
+$test3 = $_SESSION['start'];
+$test2 = $_SESSION['categorie'];
 ?>
 <!doctype html>
 <html lang="en">
@@ -24,6 +33,22 @@ require "classes-categorie.php";
     ?>
 </header>
 <main>
+    <aside>
+
+        <ul>
+            <li class="catego">Categorie d'article
+                <ul class="cache">
+                    <?php
+                    $catego2 = new Categorie();
+                    $cat2 = $catego2->getcatego();
+                    for ($i = 0; isset($cat2[$i]); $i++) {
+                        echo '<li><a href="http://localhost/blog/blog/php/articles.php?start=' . $test3 . '&categorie=' . $cat2[$i]['id'] . '">' . $cat2[$i]['nom'] . '</a></li>';
+                    }
+                    ?>
+                </ul>
+            </li>
+        </ul>
+    </aside>
     <div class="container">
 
         <?php
@@ -66,15 +91,17 @@ require "classes-categorie.php";
         ?>
     </div>
     <?php
+    if (empty($res)) {
+        echo "<p class='arriere'>Il faut revenir en arriere pour lire un article !</p>";
+    }
     $test = $_GET['start'];
-    $test2=$_GET['categorie'];
 
     if (isset($_GET['gauche'])) {
         $test = $test - 5;
-        header("Refresh:0;URL =articles.php?start=$test&categorie=$test2");
+        header('Refresh:0;URL =articles.php?start=' . $test . '&categorie=' . $test2 . '');
     } elseif (isset($_GET['droite'])) {
         $test = $test + 5;
-        header("Refresh:0;URL =articles.php?start=$test&categorie=$test2");
+        header('Refresh:0;URL =articles.php?start=' . $test . '&categorie=' . $test2 . '');
 
     }
     if ($_GET['start'] == 0) {
@@ -87,15 +114,14 @@ require "classes-categorie.php";
         echo "<input type='hidden' name='start' value='$test'>";
         echo '<input type="submit" name="gauche" class="gauche" value=""  readonly>';
         echo '<input type="submit" name="droite" class="droite"  value="" readonly>';
-    }
-    elseif (empty($res)){
+    } elseif (empty($res)) {
         echo "<form action='#' method='get' class='chevron'>";
         echo "<input type='hidden' name='start' value='$test'>";
         echo '<input type="submit" name="gauche" class="gauche" value=""  readonly>';
     }
-    var_dump($res);
 
     echo " </form>";
+
     ?>
 </main>
 <footer>

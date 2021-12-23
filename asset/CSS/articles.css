@@ -50,3 +50,22 @@ html {
     background-image: url("../IMAGE/chevron droite.jpg");
     background-size: contain;
 }
+@font-face {
+    font-family: 'Far From';
+    src: url('http://localhost/blog/blog/asset/FONT/Far-From Homecoming Updated.otf') format('opentype');
+}
+.arriere{
+    text-align: center;
+    line-height: 1.8;
+    font-family: "Far From";
+    font-size: x-large;
+    color: #FF8200;
+
+}
+
+.cache{
+    display: none;
+}
+.catego:hover .cache{
+    display: block;
+}
