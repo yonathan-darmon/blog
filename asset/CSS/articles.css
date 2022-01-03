@@ -17,6 +17,7 @@ html {
 }
 
 .article {
+    padding: 5px;
     border: 2px solid black;
     border-radius: 5px;
 }
@@ -68,4 +69,9 @@ html {
 }
 .catego:hover .cache{
     display: block;
+}
+.login{
+    padding: 5px;
+    margin-top: 10px;
+    border-top: solid 2px black;
 }

@@ -29,7 +29,7 @@ nav li a {
 }
 
 nav li a:hover {
-    background-color:#FFD100 ;
+    background-color: #FFD100;
 }
 
 .dropdown {
@@ -52,7 +52,7 @@ nav li a:hover {
 .dropdown-content a {
     display: block;
     color: #FFD100;
-    padding: 5px;
+    padding: 10px;
     text-decoration: none;
     background-color: #003594;
 

@@ -66,7 +66,7 @@ class User
     {
         if (isset($_SESSION)) {
             session_unset();
-            header("location: connexion.php");
+            header("location:/blog/blog/php/connexion.php");
         }
     }
 

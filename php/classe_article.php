@@ -17,10 +17,11 @@ class Article
     public function creation($article, $id_utilisateur, $id_categorie)
     {
 
-        $sth = $this->pdo->prepare("INSERT INTO articles(article,id_utilisateur,id_categori,date) VALUES(?,?,?,?)");
-        $date = time();
-        $sth->execute(array($article, $id_utilisateur, $id_categorie, $date));
-
+        $sth = $this->pdo->prepare("INSERT INTO articles(`article`,`id_utilisateur`,`id_categorie`,`date`) VALUES(?,?,?,?)");
+        $date = new DateTime();
+        $date->setTimestamp(time());
+        $jour = $date->format('Y-m-d H:i:s');
+        $sth->execute(array($article, $id_utilisateur, $id_categorie, $jour));
 
     }
 
@@ -28,14 +29,30 @@ class Article
     {
 
         if (empty($categorie)) {
-            $sth = $this->pdo->prepare("SELECT articles.article, articles.date, utilisateurs.login, utilisateurs.active FROM articles INNER JOIN utilisateurs on utilisateurs.id=articles.id_utilisateur ORDER BY date DESC LIMIT $get,5 ");
+            $sth = $this->pdo->prepare("SELECT articles.article, articles.date, utilisateurs.login, utilisateurs.active, articles.id  FROM articles INNER JOIN utilisateurs on utilisateurs.id=articles.id_utilisateur ORDER BY date DESC LIMIT $get,5 ");
         } else {
-            $sth = $this->pdo->prepare("SELECT articles.article, articles.date, utilisateurs.login, utilisateurs.active  FROM articles INNER JOIN utilisateurs on utilisateurs.id=articles.id_utilisateur WHERE articles.id_categorie=$categorie ORDER BY date DESC LIMIT $get,5 ");
+            $sth = $this->pdo->prepare("SELECT articles.article, articles.date, utilisateurs.login, utilisateurs.active, articles.id  FROM articles INNER JOIN utilisateurs on utilisateurs.id=articles.id_utilisateur WHERE articles.id_categorie=$categorie ORDER BY date DESC LIMIT $get,5 ");
         }
         $sth->execute();
         $res = $sth->fetchAll(PDO::FETCH_ASSOC);
-        var_dump($res);
         return $res;
+    }
+
+    public function getarticlebyid($get)
+    {
+        $sth = $this->pdo->prepare("SELECT article FROM articles WHERE articles.id=$get");
+        $sth->execute();
+        $article= $sth->fetchAll(PDO::FETCH_ASSOC);
+        return$article;
+    }
+
+    public function getcombyid($get)
+    {
+        $sth2 = $this->pdo->prepare("SELECT commentaires FROM commentaires WHERE id_article=$get");
+        $sth2->execute();
+        $commentaire = $sth2->fetchAll(PDO::FETCH_ASSOC);
+        return $commentaire;
+
     }
 
 

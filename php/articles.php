@@ -56,17 +56,17 @@ $test2 = $_SESSION['categorie'];
         if (isset($_GET['categorie'])) {
             $res = $article->get5Article($_GET['start'], $_GET['categorie']);
             for ($i = 0; isset($res[$i]); $i++) {
-                $article=explode('/',$res[$i]['article']);
-                var_dump($article);
+                $article = explode('/', $res[$i]['article']);
+                var_dump($res[$i]);
                 echo "<div class='article'>";
-                echo '<h1 class=titre>' . $article[0]. '</h1>';
-                echo '<p class=corp>'.$article[1].'</p>';
+                echo '<h1 class=titre><a href=article.php?id='. $res[$i]['id'].'>' . $article[0] . '</a></h1>';
+                echo '<p class=corp>' . $article[1] . '</p>';
                 if ($res[$i]['active'] == 0) {
-                    echo '<p class= login' . $i . '>Ecrit par ' . $res[$i]['login'] . '</p>';
+                    echo '<p class= login>Ecrit par ' . $res[$i]['login'] . '</p>';
                     $date = strtotime($res[$i]['date']);
-                    echo '<p class=date' . $i . '> le ' . date('d/m/Y H:i', $date) . '</p>';
+                    echo '<p class=date' . $i . '> le ' . date('d/m/Y ', $date) . '</p>';
                 } else {
-                    echo '<p class= login' . $i . '>Ecrit par Utilisateur</p>';
+                    echo '<p class= login>Ecrit par Utilisateur</p>';
                     $date = strtotime($res[$i]['date']);
                     echo '<p class=date' . $i . '> le ' . date('d/m/Y H:i', $date) . '</p>';
                 }
@@ -78,11 +78,11 @@ $test2 = $_SESSION['categorie'];
                 echo "<div class='article'>";
                 echo '<p class=text>' . $res[$i]['article'] . '</p>';
                 if ($res[$i]['active'] == 0) {
-                    echo '<p class= login' . $i . '>Ecrit par ' . $res[$i]['login'] . '</p>';
+                    echo '<p class= login>Ecrit par ' . $res[$i]['login'] . '</p>';
                     $date = strtotime($res[$i]['date']);
                     echo '<p class=date' . $i . '> le ' . date('d/m/Y H:i', $date) . '</p>';
                 } else {
-                    echo '<p class= login' . $i . '>Ecrit par Utilisateur</p>';
+                    echo '<p class= login>Ecrit par Utilisateur</p>';
                     $date = strtotime($res[$i]['date']);
                     echo '<p class=date' . $i . '> le ' . date('d/m/Y H:i', $date) . '</p>';
                 }
