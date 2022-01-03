@@ -34,6 +34,7 @@ class Article
         }
         $sth->execute();
         $res = $sth->fetchAll(PDO::FETCH_ASSOC);
+        var_dump($res);
         return $res;
     }
 

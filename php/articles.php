@@ -56,8 +56,11 @@ $test2 = $_SESSION['categorie'];
         if (isset($_GET['categorie'])) {
             $res = $article->get5Article($_GET['start'], $_GET['categorie']);
             for ($i = 0; isset($res[$i]); $i++) {
+                $article=explode('/',$res[$i]['article']);
+                var_dump($article);
                 echo "<div class='article'>";
-                echo '<p class=text>' . $res[$i]['article'] . '</p>';
+                echo '<h1 class=titre>' . $article[0]. '</h1>';
+                echo '<p class=corp>'.$article[1].'</p>';
                 if ($res[$i]['active'] == 0) {
                     echo '<p class= login' . $i . '>Ecrit par ' . $res[$i]['login'] . '</p>';
                     $date = strtotime($res[$i]['date']);
