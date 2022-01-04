@@ -46,14 +46,7 @@ class Article
         return$article;
     }
 
-    public function getcombyid($get)
-    {
-        $sth2 = $this->pdo->prepare("SELECT commentaires FROM commentaires WHERE id_article=$get");
-        $sth2->execute();
-        $commentaire = $sth2->fetchAll(PDO::FETCH_ASSOC);
-        return $commentaire;
 
-    }
 
 
 }

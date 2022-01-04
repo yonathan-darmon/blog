@@ -57,7 +57,6 @@ $test2 = $_SESSION['categorie'];
             $res = $article->get5Article($_GET['start'], $_GET['categorie']);
             for ($i = 0; isset($res[$i]); $i++) {
                 $article = explode('/', $res[$i]['article']);
-                var_dump($res[$i]);
                 echo "<div class='article'>";
                 echo '<h1 class=titre><a href=article.php?id='. $res[$i]['id'].'>' . $article[0] . '</a></h1>';
                 echo '<p class=corp>' . $article[1] . '</p>';
