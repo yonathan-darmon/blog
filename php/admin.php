@@ -4,9 +4,6 @@ require "classe-commentaire.php";
 require "classes-categorie.php";
 require "classe_article.php";
 require "classes_user.php";
-var_dump($_POST);
-var_dump($_SESSION);
-
 ?>
 <!doctype html>
 <html lang="fr">
@@ -26,17 +23,18 @@ var_dump($_SESSION);
     ?>
 </header>
 <main>
-    <form action="#" method="post">
+    <form action="#" method="get">
         <select name="modification" id="modification">
             <option value="articles">Articles</option>
             <option value="user">User</option>
             <option value="categories">Catégories</option>
         </select>
-        <input type="submit" name="choix" value="Choix">
+        <input type="submit" name="choix" value="categorie">
     </form>
     <?php
-    if (isset($_POST['choix'])) {
-        if ($_POST['modification'] == "user") {
+    if (isset($_GET['choix'])) {
+        unset($_SESSION['modification']);
+        if ($_GET['modification'] == "user") {
             echo "<table class='user'>";
             $user = new User();
             $userinfo = $user->getAllInfo();
@@ -58,25 +56,23 @@ var_dump($_SESSION);
             }
 
 
+            echo "</table>";
+            ?>
+            <form action="#" method="post">
+                <select name="id" id="id">
+                    <?php
+                    for ($i = 0; $userinfo[$i]; $i++) {
+                        echo '<option value=' . $userinfo[$i]['id'] . '>' . $userinfo[$i]['id'] . '</option>';
+                    }
+
+
+                    ?>
+                </select>
+                <input type="submit" name="login" value="choix">
+
+            </form>
+            <?php
         }
-
-
-        echo "</table>";
-        ?>
-        <form action="#" method="post">
-            <select name="id" id="id">
-                <?php
-                for ($i = 0; $userinfo[$i]; $i++) {
-                    echo '<option value=' . $userinfo[$i]['id'] . '>' . $userinfo[$i]['id'] . '</option>';
-                }
-
-
-                ?>
-            </select>
-            <input type="submit" name="login" value="choix">
-
-        </form>
-        <?php
     }
     ?>
 </main>
