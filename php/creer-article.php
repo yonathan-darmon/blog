@@ -47,9 +47,7 @@ if (isset($_POST['titre']) && isset($_POST['corp'])) {
                 <?php
                 $catego = new Categorie();
                 $res5 = $catego->getcatego();
-                for ($i = 0;
-                isset($res5[$i]);
-                     $i++) {
+                for ($i = 0; isset($res5[$i]); $i++) {
                     echo '<option value=' . $res5[$i]['nom'] . '>' . $res5[$i]['nom'] . '</option>';
                 }
                 ?>

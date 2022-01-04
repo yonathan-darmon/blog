@@ -12,10 +12,19 @@ class Commentaire
     }
     public function getcombyid($get)
     {
-        $sth2 = $this->pdo->prepare("SELECT commentaires.commentaire, utilisateurs.login, utilisateurs.active FROM commentaires INNER JOIN utilisateurs ON commentaires.id_utilisateur=utilisateurs.id WHERE id_article=$get");
-        $sth2->execute();
-        $commentaire = $sth2->fetchAll(PDO::FETCH_ASSOC);
+        $sth = $this->pdo->prepare("SELECT commentaires.commentaire, commentaires.date, utilisateurs.login, utilisateurs.active FROM commentaires INNER JOIN utilisateurs ON commentaires.id_utilisateur=utilisateurs.id WHERE id_article=$get ORDER BY date DESC ");
+        $sth->execute();
+        $commentaire = $sth->fetchAll(PDO::FETCH_ASSOC);
         return $commentaire;
 
+    }
+
+    public function insertcom($com,$get,$user)
+    {
+        $sth=$this->pdo->prepare("INSERT INTO commentaires(commentaire, id_article, id_utilisateur, date) VALUES (?,?,?,?)");
+        $date = new DateTime();
+        $date->setTimestamp(time());
+        $jour = $date->format('Y-m-d H:i:s');
+        $sth->execute(array($com,$get,$user,$jour));
     }
 }

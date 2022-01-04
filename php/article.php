@@ -29,6 +29,19 @@ require "classe-commentaire.php";
     $article = explode('/', $text[0]['article']);
     $comm = new Commentaire();
     $com = $comm->getcombyid($_GET['id']);
+    $id = $_GET['id'];
+    if (isset($_POST['submit'])) {
+        if (empty($_POST['titre']) || empty($_POST['corp'])) {
+            echo "<p class='error1'>Veuillez remplir tout les champs</p>";
+        } else {
+
+
+            $corp = $_POST['titre'] . '/' . $_POST['corp'];
+            $comm->insertcom($corp, $_GET['id'], $_SESSION['id']);
+            echo "<p class='confirmation'> Votre commentaire est bien enregistré</p>";
+            header("Refresh:2, URL=article.php?id=$id");
+        }
+    }
     ?>
     <div class="container">
         <img src="" alt="" class="gauche">
@@ -45,8 +58,12 @@ require "classe-commentaire.php";
                     echo "<p class='commentaire'>$commentaire[1]</p>";
                     if ($com[$i]['active'] == 0) {
                         echo '<p>Ecrit par ' . $com[$i]['login'] . '</p>';
+                        $date = strtotime($com[$i]['date']);
+                        echo '<p> le ' . date('d/m/Y', $date) . '</p>';
                     } else {
+                        $date = strtotime($com[$i]['date']);
                         echo '<p>Ecrit par Utilisateur</p>';
+                        echo '<p> le ' . date('d/m/Y', $date) . '</p>';
                     }
                 }
 
@@ -56,6 +73,13 @@ require "classe-commentaire.php";
         </div>
         <img src="" alt="" class="droite">
     </div>
+    <form action="#" method="post">
+        <label for="titre">Titre du commentaire</label>
+        <input type="text" name="titre" placeholder="votre titre">
+        <label for="corp">Votre commentaire</label>
+        <textarea id="corp" name="corp" placeholder="Votre article" rows="5" cols="33"></textarea>
+        <input type="submit" name="submit" value="Envoyer">
+    </form>
 </main>
 <footer>
     <?php
