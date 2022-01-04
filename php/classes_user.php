@@ -78,7 +78,7 @@ class User
 
     }
 
-    public function getAllInfo($login)
+    public function getAllInfoForOneUser($login)
     {
         $sth = $this->pdo->prepare("SELECT * FROM utilisateurs WHERE login='$login'");
         $sth->execute();
@@ -134,6 +134,14 @@ class User
         $sth->execute();
         $res = $sth->fetchAll(PDO::FETCH_ASSOC);
         return $res;
+    }
+
+    public function getAllInfo()
+    {
+    $sth=$this->pdo->prepare("SELECT * FROM utilisateurs");
+    $sth->execute();
+    $res=$sth->fetchAll(PDO::FETCH_ASSOC);
+    return $res;
     }
 
 
