@@ -73,13 +73,13 @@ nav li a:hover {
 .deco input {
     width: 300%;
     height: 36px;
-    color: #FFD100;
+    color: #003594;
     font-size: x-large;
     background-color: transparent;
 }
 
 .deco input:hover {
-    background-color: #003594;
+    background-color: #FFD100;
 }
 
 .footer ul {

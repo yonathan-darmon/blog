@@ -31,12 +31,11 @@
             $ab->disconnect();
         }
         $test = new User();
-        if (isset($_SESSION['id'])) {
-            $res = $test->getAllInfo($_SESSION['login']);
-            if ($res[0]['id_droits'] == 42 || $res[0]['id_droits'] == 1337) {
+        if (isset($_SESSION['droits'])) {
+            if ($_SESSION['droits'] == 42 || $_SESSION['droits'] == 1337) {
                 echo "<li><a href='http://localhost/blog/blog/php/creer-article.php'>Créer un article</a></li>";
             }
-            if ($res[0]['id_droits'] == 1337) {
+            if ($_SESSION['droits'] == 1337) {
                 echo "<li><a href='http://localhost/blog/blog/php/admin.php'>Page Admin</a></li>";
 
             }

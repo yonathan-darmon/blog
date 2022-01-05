@@ -23,7 +23,7 @@ html {
 }
 
 .article:hover {
-    transform: scale(2);
+    transform: scale(2) translate(10%);
     background-color: #e3dac9;
 }
 
@@ -45,6 +45,9 @@ html {
 }
 .bouton{
     display: flex;
+    gap: 15px;
+    justify-content: center;
+    margin-top: 15px;
 }
 .gauche{
     background-image: url("../IMAGE/chevron gauche.jpg");
@@ -52,6 +55,7 @@ html {
     width: 100px;
     height: 54px;
     display: block;
+    border-radius: 10px;
 }
 .droite{
     background-image: url("../IMAGE/chevron droite.jpg");
@@ -59,6 +63,7 @@ html {
     width: 100px;
     height: 54px;
     display: block;
+    border-radius: 10px;
 }
 @font-face {
     font-family: 'Far From';

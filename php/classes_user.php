@@ -56,7 +56,7 @@ class User
             $_SESSION['id'] = $res['id'];
             $_SESSION['droits']=$res['id_droits'];
             echo "<p class='confirmation'>Vous êtes bien connecté</p>";
-            header('Refresh:3; URL=connexion.php');
+            header('Refresh:3; URL=articles.php?start=0&categorie=0');
 
         } else {
             echo '<p class="error1">Verifiez Login ou Mot de passe</p>';

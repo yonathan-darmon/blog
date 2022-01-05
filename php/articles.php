@@ -101,15 +101,21 @@ $test2 = $_SESSION['categorie'];
     $testg = $test - 5;
     $testd = $test + 5;
     if ($_GET['start'] == 0) {
+        echo "<div class='bouton'>";
+
         echo "<a class='droite' href='articles.php?start=$testd&categorie=$test2&droite=true'></a>";
+        echo "</div>";
+
     } elseif ($_GET['start'] > 0 && !empty($res)) {
         echo "<div class='bouton'>";
         echo "<a class='gauche' href='articles.php?start=$testg&categorie=$test2&gauche=true'></a>";
         echo "<a class='droite' href='articles.php?start=$testd&categorie=$test2&droite=true'></a>";
-echo "</div>";
+        echo "</div>";
 
     } elseif (empty($res)) {
+        echo "<div class='bouton'>";
         echo "<a class='gauche' href='articles.php?start=$testg&categorie=$test2&gauche=true'></a>";
+        echo "</div>";
 
     }
 
