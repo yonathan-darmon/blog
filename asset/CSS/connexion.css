@@ -4,10 +4,6 @@
     box-sizing: border-box;
 }
 
-html {
-    background-color: #e3dac9;
-}
-
 .container {
     position: relative;
     display: flex;

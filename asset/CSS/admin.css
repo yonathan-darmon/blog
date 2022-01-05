@@ -4,6 +4,10 @@
     box-sizing: border-box;
 }
 
-html {
-    background-color: #e3dac9;
+table, th, td{
+    border: solid 2px #003594;
+}
+table{
+    margin: 10px;
+    max-height: 600px;
 }

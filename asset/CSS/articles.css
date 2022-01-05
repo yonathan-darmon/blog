@@ -4,19 +4,27 @@
     box-sizing: border-box;
 }
 
-html {
-    background-color: #e3dac9;
-}
 
+main {
+    font-family: "Far From", sans-serif;
+    color: #FF8200;
+
+}
+a{
+    color: #FF8200;
+text-decoration: none;
+}
 .container {
     display: flex;
     gap: 15px;
     justify-content: center;
     align-items: center;
     flex-wrap: nowrap;
+
 }
 
 .article {
+    margin-top: 100px;
     padding: 5px;
     border: 2px solid black;
     border-radius: 5px;
@@ -32,24 +40,28 @@ html {
     font-weight: bold;
 
 }
-.chevron{
+
+.chevron {
     display: flex;
     justify-content: center;
     gap: 50px;
 }
-.chevron input{
+
+.chevron input {
     width: 5%;
     height: 50px;
     background-color: transparent;
 
 }
-.bouton{
+
+.bouton {
     display: flex;
     gap: 15px;
     justify-content: center;
     margin-top: 15px;
 }
-.gauche{
+
+.gauche {
     background-image: url("../IMAGE/chevron gauche.jpg");
     background-size: contain;
     width: 100px;
@@ -57,7 +69,8 @@ html {
     display: block;
     border-radius: 10px;
 }
-.droite{
+
+.droite {
     background-image: url("../IMAGE/chevron droite.jpg");
     background-size: contain;
     width: 100px;
@@ -65,11 +78,13 @@ html {
     display: block;
     border-radius: 10px;
 }
+
 @font-face {
     font-family: 'Far From';
     src: url('http://localhost/blog/blog/asset/FONT/Far-From Homecoming Updated.otf') format('opentype');
 }
-.arriere{
+
+.arriere {
     text-align: center;
     line-height: 1.8;
     font-family: "Far From";
@@ -78,13 +93,23 @@ html {
 
 }
 
-.cache{
+.cache {
     display: none;
 }
-.catego:hover .cache{
+.catego{
+    line-height: 2rem;
+    margin-left: 100px;
+    list-style: none;
+    font-size: x-large;
+}
+.catego li{
+    list-style: none;
+}
+.catego:hover .cache {
     display: block;
 }
-.login{
+
+.login {
     padding: 5px;
     margin-top: 10px;
     border-top: solid 2px black;
