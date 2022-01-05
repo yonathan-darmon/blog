@@ -25,4 +25,11 @@ class Categorie
         $res=$sth->fetch(PDO::FETCH_ASSOC);
         return$res;
     }
+    public function getAllCatego()
+    {
+        $sth=$this->pdo->prepare("SELECT * FROM categories");
+        $sth->execute();
+        $res=$sth->fetchAll(PDO::FETCH_ASSOC);
+        return $res;
+    }
 }

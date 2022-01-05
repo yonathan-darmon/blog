@@ -4,6 +4,8 @@ require "classe-commentaire.php";
 require "classes-categorie.php";
 require "classe_article.php";
 require "classes_user.php";
+require "fonction.php";
+if
 ?>
 <!doctype html>
 <html lang="fr">
@@ -73,6 +75,12 @@ require "classes_user.php";
             </form>
             <?php
         }
+    }
+    ?>
+    <?php
+    if (isset($_GET['choix'])) {
+        admin($_GET['modification']);
+        var_dump($_GET);
     }
     ?>
 </main>

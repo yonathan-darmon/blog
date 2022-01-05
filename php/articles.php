@@ -58,7 +58,7 @@ $test2 = $_SESSION['categorie'];
             for ($i = 0; isset($res[$i]); $i++) {
                 $article = explode('/', $res[$i]['article']);
                 echo "<div class='article'>";
-                echo '<h1 class=titre><a href=article.php?id='. $res[$i]['id'].'>' . $article[0] . '</a></h1>';
+                echo '<h1 class=titre><a href=article.php?id=' . $res[$i]['id'] . '>' . $article[0] . '</a></h1>';
                 echo '<p class=corp>' . $article[1] . '</p>';
                 if ($res[$i]['active'] == 0) {
                     echo '<p class= login>Ecrit par ' . $res[$i]['login'] . '</p>';
@@ -98,31 +98,21 @@ $test2 = $_SESSION['categorie'];
     }
     $test = $_GET['start'];
 
-    if (isset($_GET['gauche'])) {
-        $test = $test - 5;
-        header('Refresh:0;URL =articles.php?start=' . $test . '&categorie=' . $test2 . '');
-    } elseif (isset($_GET['droite'])) {
-        $test = $test + 5;
-        header('Refresh:0;URL =articles.php?start=' . $test . '&categorie=' . $test2 . '');
-
-    }
+    $testg = $test - 5;
+    $testd = $test + 5;
     if ($_GET['start'] == 0) {
-
-        echo "<form action='#' method='get' class='chevron'>";
-        echo "<input type='hidden' name='start' value='$test'>";
-        echo '<input type="submit" name="droite" class="droite"  value="" readonly>';
+        echo "<a class='droite' href='articles.php?start=$testd&categorie=$test2&droite=true'></a>";
     } elseif ($_GET['start'] > 0 && !empty($res)) {
-        echo "<form action='#' method='get' class='chevron'>";
-        echo "<input type='hidden' name='start' value='$test'>";
-        echo '<input type="submit" name="gauche" class="gauche" value=""  readonly>';
-        echo '<input type="submit" name="droite" class="droite"  value="" readonly>';
+        echo "<div class='bouton'>";
+        echo "<a class='gauche' href='articles.php?start=$testg&categorie=$test2&gauche=true'></a>";
+        echo "<a class='droite' href='articles.php?start=$testd&categorie=$test2&droite=true'></a>";
+echo "</div>";
+
     } elseif (empty($res)) {
-        echo "<form action='#' method='get' class='chevron'>";
-        echo "<input type='hidden' name='start' value='$test'>";
-        echo '<input type="submit" name="gauche" class="gauche" value=""  readonly>';
+        echo "<a class='gauche' href='articles.php?start=$testg&categorie=$test2&gauche=true'></a>";
+
     }
 
-    echo " </form>";
 
     ?>
 </main>

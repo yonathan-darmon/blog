@@ -45,7 +45,13 @@ class Article
         $article= $sth->fetchAll(PDO::FETCH_ASSOC);
         return$article;
     }
-
+    public function getAllArticle()
+    {
+        $sth=$this->pdo->prepare("SELECT * FROM articles");
+        $sth->execute();
+        $res=$sth->fetchAll(PDO::FETCH_ASSOC);
+        return $res;
+    }
 
 
 

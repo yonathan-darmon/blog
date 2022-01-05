@@ -54,6 +54,7 @@ class User
             $this->droits = $res['id_droits'];
             $_SESSION['login'] = $login;
             $_SESSION['id'] = $res['id'];
+            $_SESSION['droits']=$res['id_droits'];
             echo "<p class='confirmation'>Vous êtes bien connecté</p>";
             header('Refresh:3; URL=connexion.php');
 
