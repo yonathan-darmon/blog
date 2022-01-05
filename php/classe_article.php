@@ -38,9 +38,17 @@ class Article
         return $res;
     }
 
-    public function getarticlebyid($get)
+    public function getArticleById($get)
     {
         $sth = $this->pdo->prepare("SELECT article FROM articles WHERE articles.id=$get");
+        $sth->execute();
+        $article= $sth->fetchAll(PDO::FETCH_ASSOC);
+        return$article;
+    }
+
+    public function getAllInfoById($id)
+    {
+        $sth = $this->pdo->prepare("SELECT * FROM articles WHERE articles.id=$id");
         $sth->execute();
         $article= $sth->fetchAll(PDO::FETCH_ASSOC);
         return$article;

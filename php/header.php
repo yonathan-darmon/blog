@@ -30,7 +30,6 @@
             $ab = new User();
             $ab->disconnect();
         }
-        $test = new User();
         if (isset($_SESSION['droits'])) {
             if ($_SESSION['droits'] == 42 || $_SESSION['droits'] == 1337) {
                 echo "<li><a href='http://localhost/blog/blog/php/creer-article.php'>Créer un article</a></li>";

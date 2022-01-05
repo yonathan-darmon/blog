@@ -128,15 +128,13 @@ class User
         }
     }
 
-    public
-    function getDroits($droits)
+    public function getAllInfoById($id)
     {
-        $sth = $this->pdo->prepare("SELECT nom FROM droits WHERE id=$droits");
+        $sth=$this->pdo->prepare("SELECT * FROM utilisateurs WHERE id=$id");
         $sth->execute();
-        $res = $sth->fetchAll(PDO::FETCH_ASSOC);
+        $res=$sth->fetchAll(PDO::FETCH_ASSOC);
         return $res;
     }
-
     public function getAllInfo()
     {
     $sth=$this->pdo->prepare("SELECT * FROM utilisateurs");

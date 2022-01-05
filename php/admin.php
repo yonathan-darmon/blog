@@ -39,8 +39,10 @@ require "fonction.php";
     if (isset($_GET['choix'])) {
         admin($_GET['modification']);
     }
+
     ?>
 </main>
+
 <footer>
     <?php
     require "footer.php";
