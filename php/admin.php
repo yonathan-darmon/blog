@@ -7,6 +7,7 @@ require "classe-commentaire.php";
 require "classes-categorie.php";
 require "classe_article.php";
 require "classes_user.php";
+require "classe-droits.php";
 require "fonction.php";
 ?>
 <!doctype html>

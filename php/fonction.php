@@ -58,34 +58,69 @@ function admin($get)
         <input type="submit" name="login" value="choix">
 
     </form>
+    <div class="box2">
     <form action="#" method="post" class="modif">
-        <?php
-        if (isset($_POST['login'])) {
-            if ($_GET['modification'] == "user") {
-                var_dump($entityinfo);
-                foreach ($entitycontent as $key => $value) {
-                    echo "<label for='login' >Login</label>";
-                    echo "<input name='login' type='text' value='$value[login]'>";
-                    echo "<label for='id_droits'>Droits</label>";
-                    echo "<select name='id_droits'>";
-                    for ($i=0;isset($entityinfo[$i]);$i++){
+    <?php
+     if (isset($_POST['update']) && isset($_SESSION['id_select']) && isset($_POST['active'])){
+                    $user=new User();
+                    $userinfo=$user->getAllInfoById($_SESSION['id_select']);
+                    var_dump($userinfo);
 
-                        echo "<option value='$entityinfo[$i][id_droits]'>$entityinfo[$i][id_droits]</option>";
-                    }
-                    echo "<input type='submit' name='update' value='modifier'>";
+                        error_log("BLOP BLOP",0,'.\php_error.log');
+                        var_dump($_SESSION['id_select']);
+                        var_dump($_POST['id_droits']);
+                        var_dump($_POST['active']);
 
+                        $user->updateAdmin($_SESSION['id_select'], $userinfo[0]['id_droits'], $_POST['active']);
                 }
-            } else {
-                echo "";
+    if (isset($_POST['login'])) {
+        if (isset($_POST['id_select'])){
+        if(isset($_SESSION['id_select'])){
+            unset($_SESSION['id_select']);
+        }
+        $_SESSION['id_select']=$_POST['id_select'];
+        }
+        $droits = new Droits();
+        $droits1 = $droits->getDroits();
+        if ($_GET['modification'] == "user" && isset($entitycontent)) {
+            foreach ($entitycontent as $key => $value) {
+                echo "<label for='login' >Login</label>";
+                echo "<input name='login' type='text' value='$value[login]' readonly>";
+                echo "<label for='id_droits'>Droits</label>";
+                echo "<select name='id_droits'>";
+
+                for ($i = 0; isset($droits1[$i]); $i++) {
+
+                    echo '<option value=' . $droits1[$i]['nom'] . '>' . $droits1[$i]['nom'] . '</option>';
+                }
+                echo "</select>";
+                echo "<label for='active'> Utilisateurs actif</label>";
+                echo "<select name='active'>";
+                echo "<option value='0'> Actif</option>";
+                echo "<option value='1'> Inactif</option>";
+                echo "</select>";
+                echo "<input type='submit' name='update' value='modifier'>";
+                echo "</form>";
+                var_dump($_POST);
+                error_log(implode("|",$_POST),0,'.\php_error.log');
             }
 
 
-        }
+
         ?>
-    </form>
-    <?php
+        <div class="text">
+            <ul>Rappel des Regles:
+                <li>Un user active 1 signifie qu'il ne peut plus poster sur le site et son mdp sera supprimé</li>
+            </ul>
+        </div>
+
+        </div>
+        <?php
+    }
 
 }
 
+
+}
 
 ?>
