@@ -29,9 +29,9 @@ class Article
     {
 
         if (empty($categorie)) {
-            $sth = $this->pdo->prepare("SELECT articles.article, articles.date, utilisateurs.login, utilisateurs.active, articles.id  FROM articles INNER JOIN utilisateurs on utilisateurs.id=articles.id_utilisateur ORDER BY date DESC LIMIT $get,5 ");
+            $sth = $this->pdo->prepare("SELECT articles.article, articles.date, utilisateurs.login, utilisateurs.active, articles.id  FROM articles INNER JOIN utilisateurs on utilisateurs.id=articles.id_utilisateur WHERE articles.enligne!=1 ORDER BY date DESC LIMIT $get,5 ");
         } else {
-            $sth = $this->pdo->prepare("SELECT articles.article, articles.date, utilisateurs.login, utilisateurs.active, articles.id  FROM articles INNER JOIN utilisateurs on utilisateurs.id=articles.id_utilisateur WHERE articles.id_categorie=$categorie ORDER BY date DESC LIMIT $get,5 ");
+            $sth = $this->pdo->prepare("SELECT articles.article, articles.date, utilisateurs.login, utilisateurs.active, articles.id  FROM articles INNER JOIN utilisateurs on utilisateurs.id=articles.id_utilisateur WHERE articles.enligne!=1 AND articles.id_categorie=$categorie ORDER BY date DESC LIMIT $get,5 ");
         }
         $sth->execute();
         $res = $sth->fetchAll(PDO::FETCH_ASSOC);
@@ -59,6 +59,11 @@ class Article
         $sth->execute();
         $res=$sth->fetchAll(PDO::FETCH_ASSOC);
         return $res;
+    }
+
+    public function update($article, $catego, $enligne)
+    {
+        $sth=$this->pdo->prepare("UPDATE ")
     }
 
 

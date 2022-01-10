@@ -1,6 +1,6 @@
 <?php
 session_start();
-if ($_SESSION['droits']!= 1337){
+if ($_SESSION['droits'] != 1337) {
     header("location: connexion.php");
 }
 require "classe-commentaire.php";

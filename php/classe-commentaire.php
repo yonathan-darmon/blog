@@ -27,4 +27,12 @@ class Commentaire
         $jour = $date->format('Y-m-d H:i:s');
         $sth->execute(array($com,$get,$user,$jour));
     }
+
+    public function getComByIdArticle($get)
+    {
+        $sth=$this->pdo->prepare("SELECT * FROM commentaires WHERE id_article=$get");
+        $sth->execute();
+        $sth2=$sth->fetchAll(PDO::FETCH_ASSOC);
+        return$sth2;
+    }
 }

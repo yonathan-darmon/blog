@@ -3,9 +3,11 @@ session_start();
 require "classes-categorie.php";
 require "classe_article.php";
 require "classes_user.php";
+require "classe-droits.php";
 $info = new User();
-$res4 = $info->getAllInfo($_SESSION['login']);
-$res5 = $info->getDroits($res4[0]['id_droits']);
+$res4 = $info->getAllInfoForOneUser($_SESSION['login']);
+$droits = new Droits();
+$res5 = $droits->getDroits($res4[0]['id_droits']);
 
 ?>
 <!doctype html>
