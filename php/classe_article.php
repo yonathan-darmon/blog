@@ -63,7 +63,7 @@ class Article
 
     public function update($article, $catego, $enligne)
     {
-        $sth=$this->pdo->prepare("UPDATE ")
+        $sth=$this->pdo->prepare("UPDATE ");
     }
 
 
