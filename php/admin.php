@@ -33,6 +33,7 @@ require "fonction.php";
             <option value="articles">Articles</option>
             <option value="user">User</option>
             <option value="categories">Catégories</option>
+            <option value="commentaire">Commentaires</option>
         </select>
         <input type="submit" name="choix" value="categorie">
     </form>

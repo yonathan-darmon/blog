@@ -35,4 +35,11 @@ class Commentaire
         $sth2=$sth->fetchAll(PDO::FETCH_ASSOC);
         return$sth2;
     }
+
+    public function getAllCom()
+    {
+        $sth=$this->pdo->prepare("SELECT * FROM commentaires");
+        $sth->execute();
+        $res=$sth->fetchAll(PDO::FETCH_ASSOC);
+    }
 }

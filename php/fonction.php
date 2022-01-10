@@ -1,6 +1,25 @@
 <?php
 function admin($get)
 {
+     if (isset($_POST['update']) && isset($_SESSION['id_select'])){
+         		if ($_GET['modification'] == "user" && isset($_POST['active'])) {
+
+					$user=new User();
+					$userinfo=$user->getAllInfoById($_SESSION['id_select']);
+						$user->updateAdmin($_SESSION['id_select'], $userinfo[0]['id_droits'], $_POST['active']);
+                                             header("Refresh:3, URL=admin.php");
+
+                 }
+                 elseif ($_GET['modification']== "articles" && isset($_POST['categorie'])) {
+                     $article2=new Article();
+                     $text=$_POST['titre'].'/'. $_POST['corp'];
+                     $catego=new Categorie();
+                     $cat2=$catego->getCategoByName($_POST['categorie']);
+                     $article2->update($text,$cat2['id'],$_POST['enligne'],$_SESSION['id_select']);
+                     header("Refresh:3, URL=admin.php");
+
+                 }
+     }
 
 	if ($get == "user") {
 		$entity = new User();
@@ -20,6 +39,13 @@ function admin($get)
 		if (isset($_POST['id_select'])) {
 			$entitycontent = $entity->getAllInfoById($_POST['id_select']);
 		}
+        elseif ($get == "commentaire"){
+            $entity=new Commentaire();
+            $entityinfo=$entity->getAllCom();
+            if (isset($_POST['id_select'])){
+                $entitycontent=$entity->getcombyid($_POST['id_select']);
+            }
+        }
 	} else {
 		die();
 	}
@@ -61,20 +87,7 @@ function admin($get)
 	<div class="box2">
 	<form action="#" method="post" class="modif">
 	<?php
-	 if (isset($_POST['update']) && isset($_SESSION['id_select']) && isset($_POST['active'])){
-         		if ($_GET['modification'] == "user" && isset($entitycontent)) {
 
-					$user=new User();
-					$userinfo=$user->getAllInfoById($_SESSION['id_select']);
-						error_log("BLOP BLOP",0,'.\php_error.log');
-
-						$user->updateAdmin($_SESSION['id_select'], $userinfo[0]['id_droits'], $_POST['active']);
-                 }
-                 elseif ($_GET['modification']== "articles" && isset($entitycontent)) {
-                     $article2=new Article();
-
-                 }
-     }
 
 	if (isset($_POST['login'])) {
 		if (isset($_POST['id_select'])){

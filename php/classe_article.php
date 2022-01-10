@@ -61,9 +61,12 @@ class Article
         return $res;
     }
 
-    public function update($article, $catego, $enligne)
+    public function update($article, $catego, $enligne,$id)
     {
-        $sth=$this->pdo->prepare("UPDATE ");
+        $sth=$this->pdo->prepare("UPDATE articles SET article=?,id_categorie=?,enligne=? WHERE id=$id");
+        $sth->execute(array($article,$catego,$enligne));
+        echo "<p class='confirmation'> Votre Modification a été prise en compte</p>";
+
     }
 
 

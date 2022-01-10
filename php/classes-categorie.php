@@ -39,4 +39,12 @@ class Categorie
         $res=$sth->fetchAll(PDO::FETCH_ASSOC);
         return $res;
     }
+
+    public function getCategoByName($name)
+    {
+        $sth=$this->pdo->prepare("SELECT * FROM categories WHERE nom='$name'");
+        $sth->execute();
+        $res=$sth->fetch();
+        return $res;
+    }
 }
