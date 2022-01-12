@@ -38,7 +38,7 @@
                 echo "<li><a href='http://localhost/blog/blog/php/admin.php'>Page Admin</a></li>";
 
             }
-            echo "<li><form action='#' method='post' class='deco'><input type='submit' name='deco' value='deco'></form></li>";
+            echo "<li><form action='#' method='post' class='deco'><input type='submit' id='deco' name='deco' value='deco'></form></li>";
         }
         ?>
 

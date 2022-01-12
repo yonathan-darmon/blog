@@ -47,4 +47,18 @@ class Categorie
         $res=$sth->fetch();
         return $res;
     }
+
+    public function updateAdmin($nom,$get)
+    {
+        $sth=$this->pdo->prepare("UPDATE `categories` SET nom=? WHERE id=$get ");
+        $sth->execute(array($nom));
+        echo"<p class='confirmation'> Catégorie modifié</p>";
+    }
+
+    public function create($nom)
+    {
+        $sth=$this->pdo->prepare("INSERT INTO `categories`(`nom`) VALUES (?)");
+        $sth->execute(array($nom));
+        echo "<p class='confirmation'> Insertion de catégorie enregistrée</p>";
+    }
 }

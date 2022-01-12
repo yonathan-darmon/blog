@@ -2,7 +2,24 @@
 function admin($get)
 {
     if (isset($_POST['delete'])){
-        
+        $delete=new Commentaire();
+        $delete->delete($_SESSION['id_select']);
+        header("Refresh:3, URL=admin.php");
+
+
+    }
+    if (isset($_POST['create'])){
+        $create=new Categorie();
+        $nom=$create->getCategoByName($_POST['nom']);
+        if($nom['nom']!=$_POST['nom']){
+              $create->create($_POST['nom']);
+              header("Refresh:3, URL=admin.php");
+        }else{
+            echo "<p class='error1'> Ce nom de catégorie existe déjà</p>";
+        }
+
+
+
     }
      if (isset($_POST['update']) && isset($_SESSION['id_select'])){
          		if ($_GET['modification'] == "user" && isset($_POST['active'])) {
@@ -27,6 +44,12 @@ function admin($get)
                      $update->updateAdmin($text,$_SESSION['id_select']);
                      header("Refresh:3, URL=admin.php");
                      }
+                 elseif ($_GET['modification']== "categories" && isset($_POST['nom'])) {
+                        $update=new Categorie();
+                        $update->updateAdmin($_POST['nom'],$_SESSION['id_select']);
+                        header("Refresh:3, URL=admin.php");
+
+                 }
      }
 
 	if ($get == "user") {
@@ -193,6 +216,19 @@ function admin($get)
                             echo "<p>$article2[1]</p>";
                             echo "</div>";
 
+
+        }
+        elseif ($_GET['modification']== "categories" && isset($entitycontent)) {
+            echo"<form action='#' method='post' class='modif'>";
+            foreach ($entitycontent as $key => $value) {
+                echo "<label for='nom'>Nom de la catégorie</label>";
+                echo "<input name='nom' value='$value[nom]'>";
+                echo "<input type='submit' name='update' value='modifier'>";
+                echo "<input type='submit' name='create' value='creer une categorie'>";
+                echo "</form>";
+
+
+            }
 
         }
 

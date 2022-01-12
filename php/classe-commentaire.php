@@ -46,7 +46,7 @@ class Commentaire
 
     public function getComById($get)
     {
-        $sth=$this->pdo->prepare("SELECT * FROM commentaires WHERE id=$get");
+        $sth=$this->pdo->prepare("SELECT * FROM commentaires WHERE id_article=$get");
         $sth->execute();
         $res=$sth->fetchAll(PDO::FETCH_ASSOC);
         return$res;
@@ -57,5 +57,12 @@ class Commentaire
         $sth=$this->pdo->prepare("UPDATE `commentaires` SET commentaire=? WHERE id=$get");
         $sth->execute(array($text));
         echo"<p class='confirmation'> Modification prise en compte</p>";
+    }
+
+    public function delete($get)
+    {
+        $sth=$this->pdo->prepare("DELETE FROM `commentaires` WHERE id=$get");
+        $sth->execute();
+        echo "<p class='confirmation'> Commentaire supprimé</p>";
     }
 }

@@ -26,9 +26,9 @@ require "classe-commentaire.php";
     <?php
     $art = new Article();
     $text = $art->getarticlebyid($_GET['id']);
-    $article = explode('/', $text[0]['article']);
+    $article = explode('/', $text['article']);
     $comm = new Commentaire();
-    $com = $comm->getcombyid($_GET['id']);
+    $com = $comm->getComAndUserById($_GET['id']);
     $id = $_GET['id'];
     if (isset($_POST['submit'])) {
         if (empty($_POST['titre']) || empty($_POST['corp'])) {

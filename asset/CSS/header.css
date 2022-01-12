@@ -71,11 +71,14 @@ nav li a:hover {
 }
 
 .deco input {
-    width: 300%;
-    height: 36px;
     color: #003594;
-    font-size: x-large;
-    background-color: transparent;
+    line-height: 2rem;
+    font-weight: bold;
+    font-size: xx-large;
+    box-shadow: rgb(0 0 0 / 30%) 0px 19px 38px, rgb(0 0 0 / 22%) 0px 15px 12px;
+    border-radius: 5px;
+    background: transparent;
+    border: none;
 }
 
 .deco input:hover {
