@@ -1,6 +1,9 @@
 <?php
 function admin($get)
 {
+    if (isset($_POST['delete'])){
+        
+    }
      if (isset($_POST['update']) && isset($_SESSION['id_select'])){
          		if ($_GET['modification'] == "user" && isset($_POST['active'])) {
 
@@ -18,7 +21,12 @@ function admin($get)
                      $article2->update($text,$cat2['id'],$_POST['enligne'],$_SESSION['id_select']);
                      header("Refresh:3, URL=admin.php");
 
-                 }
+                 }elseif ($_GET['modification']== "commentaire" && isset($_POST['corp'])) {
+                     $update=new Commentaire();
+                     $text=$_POST['titre'].'/'. $_POST['corp'];
+                     $update->updateAdmin($text,$_SESSION['id_select']);
+                     header("Refresh:3, URL=admin.php");
+                     }
      }
 
 	if ($get == "user") {
@@ -39,13 +47,14 @@ function admin($get)
 		if (isset($_POST['id_select'])) {
 			$entitycontent = $entity->getAllInfoById($_POST['id_select']);
 		}
+        }
         elseif ($get == "commentaire"){
             $entity=new Commentaire();
             $entityinfo=$entity->getAllCom();
             if (isset($_POST['id_select'])){
-                $entitycontent=$entity->getcombyid($_POST['id_select']);
+                $entitycontent=$entity->getComById($_POST['id_select']);
             }
-        }
+
 	} else {
 		die();
 	}
@@ -136,8 +145,6 @@ function admin($get)
 		elseif ($_GET['modification']== "articles" && isset($entitycontent)) {
            echo"<form action='#' method='post' class='modif'>";
             			foreach ($entitycontent as $key => $value) {
-                            $commentaire=new Commentaire();
-                            $com=$commentaire->getComByIdArticle($_SESSION['id_select']);
                             $article = explode('/', $value['article']);
                             echo "<label for='titre'>Titre de l'article</label>";
                             echo "<input type='text' name='titre' value='$article[0]'>";
@@ -165,6 +172,29 @@ function admin($get)
 
 
 		}
+        elseif ($_GET['modification']== "commentaire" && isset($entitycontent)) {
+                        echo"<form action='#' method='post' class='modif'>";
+                        foreach ($entitycontent as $key => $value) {
+                            $comment=explode('/', $value['commentaire']);
+                            echo "<label for='titre'>Titre du commentaire</label>";
+                            echo "<input type='text' name='titre' value='$comment[0]'>";
+                            echo "<label for='corp'> Corp du commentaire</label>";
+                            echo "<textarea name='corp' cols='5' rows='5'>$comment[1]</textarea>";
+                            echo "<input type='submit' name='update' value='modifier'>";
+                            echo "<input type='submit' name='delete' value='Supprimer le commentaire'>";
+                            echo "</form>";
+                            }
+                            echo "<div class='displayarticle'>";
+                            echo "<p> Ce commentaire correspond à l'article suivant:</p>";
+                            $article=new Article();
+                            $art=$article->getArticleById($value['id_article']);
+                            $article2=explode('/',$art['article']);
+                            echo "<h1>$article2[0]</h1>";
+                            echo "<p>$article2[1]</p>";
+                            echo "</div>";
+
+
+        }
 
 	}
     echo "</div>";

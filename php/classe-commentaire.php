@@ -10,7 +10,7 @@ class Commentaire
         $this->pdo = new PDO('mysql:host=localhost;dbname=blog', 'root');
 
     }
-    public function getcombyid($get)
+    public function getComAndUserById($get)
     {
         $sth = $this->pdo->prepare("SELECT commentaires.commentaire, commentaires.date, utilisateurs.login, utilisateurs.active FROM commentaires INNER JOIN utilisateurs ON commentaires.id_utilisateur=utilisateurs.id WHERE id_article=$get ORDER BY date DESC ");
         $sth->execute();
@@ -41,5 +41,21 @@ class Commentaire
         $sth=$this->pdo->prepare("SELECT * FROM commentaires");
         $sth->execute();
         $res=$sth->fetchAll(PDO::FETCH_ASSOC);
+        return$res;
+    }
+
+    public function getComById($get)
+    {
+        $sth=$this->pdo->prepare("SELECT * FROM commentaires WHERE id=$get");
+        $sth->execute();
+        $res=$sth->fetchAll(PDO::FETCH_ASSOC);
+        return$res;
+    }
+
+    public function updateAdmin($text,$get)
+    {
+        $sth=$this->pdo->prepare("UPDATE `commentaires` SET commentaire=? WHERE id=$get");
+        $sth->execute(array($text));
+        echo"<p class='confirmation'> Modification prise en compte</p>";
     }
 }

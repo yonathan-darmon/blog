@@ -42,7 +42,7 @@ class Article
     {
         $sth = $this->pdo->prepare("SELECT article FROM articles WHERE articles.id=$get");
         $sth->execute();
-        $article= $sth->fetchAll(PDO::FETCH_ASSOC);
+        $article= $sth->fetch();
         return$article;
     }
 

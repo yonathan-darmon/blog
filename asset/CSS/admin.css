@@ -19,6 +19,11 @@ table {
     width: 30%;
     margin-left: 20px;
 }
+.box{
+    display: block;
+    justify-content:space-between ;
+}
+
 .box2{
     display: flex;
     justify-content: space-around;
