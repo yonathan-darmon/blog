@@ -23,7 +23,7 @@ $test2 = $_SESSION['categorie'];
     <link rel="stylesheet" href="../asset/CSS/header.css">
     <link rel="icon" type="image/png" href="../asset/IMAGE/android-icon-192x192.png">
     <link rel="stylesheet" href="../asset/CSS/articles.css">
-
+    <script src="https://kit.fontawesome.com/225d5fd287.js" crossorigin="anonymous"></script>
     <title>Articles</title>
 </head>
 <body>
@@ -63,11 +63,11 @@ $test2 = $_SESSION['categorie'];
                 if ($res[$i]['active'] == 0) {
                     echo '<p class= login>Ecrit par ' . $res[$i]['login'] . '</p>';
                     $date = strtotime($res[$i]['date']);
-                    echo '<p class=date' . $i . '> le ' . date('d/m/Y ', $date) . '</p>';
+                    echo '<p class=date> le ' . date('d/m/Y ', $date) . '</p>';
                 } else {
                     echo '<p class= login>Ecrit par Utilisateur</p>';
                     $date = strtotime($res[$i]['date']);
-                    echo '<p class=date' . $i . '> le ' . date('d/m/Y H:i', $date) . '</p>';
+                    echo '<p class=date> le ' . date('d/m/Y H:i', $date) . '</p>';
                 }
                 echo "</div>";
             }
@@ -79,11 +79,11 @@ $test2 = $_SESSION['categorie'];
                 if ($res[$i]['active'] == 0) {
                     echo '<p class= login>Ecrit par ' . $res[$i]['login'] . '</p>';
                     $date = strtotime($res[$i]['date']);
-                    echo '<p class=date' . $i . '> le ' . date('d/m/Y H:i', $date) . '</p>';
+                    echo '<p class=date> le ' . date('d/m/Y H:i', $date) . '</p>';
                 } else {
                     echo '<p class= login>Ecrit par Utilisateur</p>';
                     $date = strtotime($res[$i]['date']);
-                    echo '<p class=date' . $i . '> le ' . date('d/m/Y H:i', $date) . '</p>';
+                    echo '<p class=date> le ' . date('d/m/Y H:i', $date) . '</p>';
                 }
                 echo "</div>";
 
