@@ -28,7 +28,7 @@ require "classe-commentaire.php";
     <?php
     $art = new Article();
     $text = $art->getarticlebyid($_GET['id']);
-    $date2=strtotime($text['date']);
+    $date2 = strtotime($text['date']);
 
     $article = explode('/', $text['article']);
     $comm = new Commentaire();
@@ -56,7 +56,8 @@ require "classe-commentaire.php";
                     <p class="article"><?php echo $article[1]; ?></p>
                 </div>
                 <div class="infos">
-                    <p>Ecrit par <?php echo $text['login'];?></p>
+                    <p>Ecrit par <?php echo $text['login']; ?></p>
+                    <img src="../asset/IMAGE/Rams_de_LA_casque.png" alt="casque des rams">
                     <p>Le <?php echo date('d/m/Y', $date2); ?> </p>
                 </div>
             </div>
@@ -64,8 +65,8 @@ require "classe-commentaire.php";
                 <?php
                 for ($i = 0; isset($com[$i]); $i++) {
                     $commentaire = explode('/', $com[$i]['commentaire']);
-                    echo "<h3 class='titrecom'>$commentaire[0]</h3>";
-                    echo "<p class='commentaire'>$commentaire[1]</p>";
+                    echo "<div class='infos2'>";
+                    echo "<p>Titre: $commentaire[0]</p>";
                     if ($com[$i]['active'] == 0) {
                         echo '<p>Ecrit par ' . $com[$i]['login'] . '</p>';
                         $date = strtotime($com[$i]['date']);
@@ -75,21 +76,26 @@ require "classe-commentaire.php";
                         echo '<p>Ecrit par Utilisateur</p>';
                         echo '<p> le ' . date('d/m/Y', $date) . '</p>';
                     }
+                    echo "</div>";
+                    echo "<p class='commentaire'>$commentaire[1]</p>";
+
                 }
 
                 ?>
-
             </div>
         </div>
-        <img src="" alt="" class="droite">
     </div>
-    <form action="#" method="post">
-        <label for="titre">Titre du commentaire</label>
-        <input type="text" name="titre" placeholder="votre titre">
-        <label for="corp">Votre commentaire</label>
-        <textarea id="corp" name="corp" placeholder="Votre article" rows="5" cols="33"></textarea>
-        <input type="submit" name="submit" value="Envoyer">
-    </form>
+        <form action="#" method="post" class="insertcom">
+            <div class="box3">
+            <p class="leavecom">Laissez un commentaire</p>
+            <label for="titre">Titre du commentaire</label>
+            <input type="text" name="titre" placeholder="votre titre">
+            <label for="corp">Votre commentaire</label>
+            <textarea id="corp" name="corp" placeholder="Votre article" rows="5" cols="33"></textarea>
+            <input type="submit" name="submit" value="Envoyer">
+            </div>
+            <img src="../asset/IMAGE/belier.jpg" alt="logo" class="newlogo">
+        </form>
 </main>
 <footer>
     <?php

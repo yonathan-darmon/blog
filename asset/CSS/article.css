@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Nova+Slim&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display+SC:ital,wght@1,700&display=swap');
 
 * {
     margin: 0;
@@ -49,11 +50,112 @@
     background-color: #082A66;
     justify-content: space-around;
     width: 982px;
-    color: white;
     min-height: 50vh;
-    padding: 15px;
     margin-left: 244px;
+    margin-top: 80px;
 }
-.titre, .corp{
+
+.titre {
+    font-family: 'Playfair Display SC', serif;
+}
+
+.corp {
     font-family: 'Nova Slim', cursive;
+    background-color: white;
+    color: #082A66;
+    width: 405px;
+    height: 435px;
+    border-radius: 10px;
+    padding: 15px;
+    margin-top: 40px;
+    margin-bottom: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.infos {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 30%;
+
+}
+
+.infos p {
+    background-color: white;
+    border-radius: 10px;
+    width: 300px;
+    height: 75px;
+    padding: 15px;
+    text-align: center;
+    font-family: 'Nova Slim', cursive;
+    font-size: 20px;
+}
+
+.infos img {
+    width: 50%;
+    margin-left: 86px;
+
+}
+.cardcom{
+    display: flex;
+    border: #082A66 solid 5px;
+    border-radius: 10px;
+    margin-top: 114px;
+    width: 982px;
+    margin-left: 244px;
+    gap: 108px;
+}
+.commentaire{
+    background-color: #FFD02B;
+    width: 665px;
+    height: 79px;
+    margin-top: 30px;
+    margin-bottom: 21px;
+    border-radius: 10px;
+    padding: 15px;
+    font-size: 25px;
+    font-family: 'Nova Slim', cursive;
+
+
+}
+.infos2{
+    padding: 15px;
+    margin-top: 21px;
+    margin-bottom: 21px;
+    font-size: 20px;
+    font-family: 'Nova Slim', cursive;
+
+}
+.box3{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 15px;
+
+}
+.insertcom{
+    display: flex;
+    background-color: #FFD02B;
+    width: 982px;
+    height: 358px;
+    margin-top: 114px;
+    margin-bottom: 50px;
+    border-radius: 15px;
+    font-family: 'Nova Slim', cursive;
+    margin-left: 244px;
+    justify-content: space-evenly;
+}
+.insertcom input, textarea{
+    width: 509px;
+}
+.newlogo{
+    width: 15%;
+    height: 200px;
+    margin-top: 90px;
+    border-radius: 15px;
+}
+.leavecom{
+    font-size: 35px;
 }
