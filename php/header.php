@@ -1,7 +1,7 @@
-<nav>
-    <ul>
+<nav class="header">
+    <ul class="main">
         <img class="logo" src="http://localhost/blog/blog/asset/IMAGE/la-rams-logo-1.png" alt="">
-        <li><a href="../index.php">Accueil</a></li>
+        <li><a href="http://localhost/blog/blog/index.php">Accueil</a></li>
 
         <li class="dropdown"><a href="http://localhost/blog/blog/php/articles.php?start=0&categorie=0">Articles</a>
 
@@ -38,7 +38,7 @@
                 echo "<li><a href='http://localhost/blog/blog/php/admin.php'>Page Admin</a></li>";
 
             }
-            echo "<li><form action='#' method='post' class='deco'><input type='submit' id='deco' name='deco' value='deco'></form></li>";
+            echo "<li><form action='#' method='post' class='deco'><input type='submit' id='deco' name='deco' value='Deconnexion'></form></li>";
         }
         ?>
 

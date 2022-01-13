@@ -15,6 +15,7 @@ require "php/classe_article.php";
     <link rel="stylesheet" href="asset/CSS/header.css">
     <link rel="stylesheet" href="asset/CSS/index.css">
     <link rel="icon" type="image/png" href="asset/IMAGE/android-icon-192x192.png">
+    <script src="https://kit.fontawesome.com/225d5fd287.js" crossorigin="anonymous"></script>
     <title>Accueil</title>
 </head>
 <body>
@@ -24,6 +25,8 @@ require "php/classe_article.php";
     ?>
 </header>
 <main>
+    <p class="welcome">Bienvenue dans la Rams Family</p>
+    <img src="asset/IMAGE/ramshouse.jpg" alt="ramshouse">
 
 </main>
 <footer>
