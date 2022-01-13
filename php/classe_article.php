@@ -40,7 +40,7 @@ class Article
 
     public function getArticleById($get)
     {
-        $sth = $this->pdo->prepare("SELECT article FROM articles WHERE articles.id=$get");
+        $sth = $this->pdo->prepare("SELECT articles.article, utilisateurs.login, articles.date FROM articles INNER JOIN utilisateurs ON articles.id_utilisateur=utilisateurs.id WHERE articles.id=$get");
         $sth->execute();
         $article= $sth->fetch();
         return$article;

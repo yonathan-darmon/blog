@@ -1,7 +1,13 @@
+@import url('https://fonts.googleapis.com/css2?family=Nova+Slim&display=swap');
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+}
+
+main {
+    min-height: 70vh;
 }
 
 table, th, td {
@@ -18,16 +24,57 @@ table {
     flex-direction: column;
     width: 30%;
     margin-left: 20px;
-}
-.box{
-    display: block;
-    justify-content:space-between ;
+    background-color: #FFD02B;
+    padding: 35px;
+    border-radius: 20px;
 }
 
-.box2{
+label {
+    color: #082A66;
+    font-family: 'Nova Slim', cursive;
+
+}
+
+.modif input {
+    border-radius: 5px;
+}
+
+.modif textarea {
+    border-radius: 5px;
+}
+
+.box {
+    display: block;
+    justify-content: space-between;
+}
+
+.box2 {
     display: flex;
     justify-content: space-around;
 }
+
+.text {
+    background-color: #082A66;
+    border-radius: 20px;
+    color: white;
+    height: 100px;
+    padding: 25px;
+    font-family: 'Nova Slim', cursive;
+
+
+}
+
+.displayarticle {
+    background-color: #082A66;
+    padding: 25px;
+    font-family: 'Nova Slim', cursive;
+    color: white;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
 .error1 {
     background-color: red;
     color: white;

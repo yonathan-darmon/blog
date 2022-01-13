@@ -117,10 +117,8 @@ function admin($get)
 
 	</form>
 	<div class="box2">
-	<form action="#" method="post" class="modif">
+
 	<?php
-
-
 	if (isset($_POST['login'])) {
 		if (isset($_POST['id_select'])){
 		 if(isset($_SESSION['id_select'])){
@@ -158,9 +156,9 @@ function admin($get)
 
 		?>
 		<div class="text">
-			<ul>Rappel des Regles:
-				<li>Un user active 1 signifie qu'il ne peut plus poster sur le site et son mdp sera supprimé</li>
-			</ul>
+			<p>Rappel des Regles:
+				<p>Un user active 1 signifie qu'il ne peut plus poster sur le site et son mdp sera supprimé</p>
+			</p>
 		</div>
 
 		<?php
@@ -212,8 +210,8 @@ function admin($get)
                             $article=new Article();
                             $art=$article->getArticleById($value['id_article']);
                             $article2=explode('/',$art['article']);
-                            echo "<h1>$article2[0]</h1>";
-                            echo "<p>$article2[1]</p>";
+                            echo "<h1 class='titredisplay'>$article2[0]</h1>";
+                            echo "<p class='corpdisplay'>$article2[1]</p>";
                             echo "</div>";
 
 

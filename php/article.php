@@ -14,6 +14,8 @@ require "classe-commentaire.php";
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="../asset/CSS/header.css">
     <link rel="stylesheet" href="../asset/CSS/article.css">
+    <link rel="icon" type="image/png" href="../asset/IMAGE/android-icon-192x192.png">
+    <script src="https://kit.fontawesome.com/225d5fd287.js" crossorigin="anonymous"></script>
     <title>Article</title>
 </head>
 <body>
@@ -26,6 +28,8 @@ require "classe-commentaire.php";
     <?php
     $art = new Article();
     $text = $art->getarticlebyid($_GET['id']);
+    $date2=strtotime($text['date']);
+
     $article = explode('/', $text['article']);
     $comm = new Commentaire();
     $com = $comm->getComAndUserById($_GET['id']);
@@ -47,8 +51,14 @@ require "classe-commentaire.php";
         <img src="" alt="" class="gauche">
         <div class="card">
             <div class="cardarticle">
-                <h1 class="titre"><?php echo "$article[0]"; ?></h1>
-                <p class="article"><?php echo "$article[1]"; ?></p>
+                <div class="corp">
+                    <h1 class="titre"><?php echo $article[0]; ?></h1>
+                    <p class="article"><?php echo $article[1]; ?></p>
+                </div>
+                <div class="infos">
+                    <p>Ecrit par <?php echo $text['login'];?></p>
+                    <p>Le <?php echo date('d/m/Y', $date2); ?> </p>
+                </div>
             </div>
             <div class="cardcom">
                 <?php
