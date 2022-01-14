@@ -23,10 +23,7 @@ class Article
         $jour = $date->format('Y-m-d H:i:s');
         $online=0;
         $sth->execute(array($article, $id_utilisateur, $id_categorie, $jour,$online));
-        var_dump($jour);
-        var_dump($article);
-        var_dump($id_utilisateur);
-        var_dump($id_categorie);
+
 
     }
 
