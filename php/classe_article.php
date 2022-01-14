@@ -17,11 +17,16 @@ class Article
     public function creation($article, $id_utilisateur, $id_categorie)
     {
 
-        $sth = $this->pdo->prepare("INSERT INTO articles(`article`,`id_utilisateur`,`id_categorie`,`date`) VALUES(?,?,?,?)");
+        $sth = $this->pdo->prepare("INSERT INTO articles(`article`,`id_utilisateur`,`id_categorie`,`date`,enligne) VALUES(?,?,?,?,?)");
         $date = new DateTime();
         $date->setTimestamp(time());
         $jour = $date->format('Y-m-d H:i:s');
-        $sth->execute(array($article, $id_utilisateur, $id_categorie, $jour));
+        $online=0;
+        $sth->execute(array($article, $id_utilisateur, $id_categorie, $jour,$online));
+        var_dump($jour);
+        var_dump($article);
+        var_dump($id_utilisateur);
+        var_dump($id_categorie);
 
     }
 

@@ -91,7 +91,7 @@ require "classe-commentaire.php";
             <label for="titre">Titre du commentaire</label>
             <input type="text" name="titre" placeholder="votre titre">
             <label for="corp">Votre commentaire</label>
-            <textarea id="corp" name="corp" placeholder="Votre article" rows="5" cols="33"></textarea>
+            <textarea id="corp" name="corp" placeholder="Votre article" rows="15" cols="33"></textarea>
             <input type="submit" name="submit" value="Envoyer">
             </div>
             <img src="../asset/IMAGE/belier.jpg" alt="logo" class="newlogo">

@@ -3,9 +3,7 @@ session_start();
 require "classes-categorie.php";
 require "classe_article.php";
 require "classes_user.php";
-if (isset($_POST['titre']) && isset($_POST['corp'])) {
-    $article = $_POST['titre'] . '/' . $_POST['corp'];
-}
+
 ?>
 <!doctype html>
 <html lang="fr">
@@ -16,6 +14,9 @@ if (isset($_POST['titre']) && isset($_POST['corp'])) {
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="../asset/CSS/header.css">
     <link rel="stylesheet" href="../asset/CSS/creerarticle.css">
+    <link rel="icon" type="image/png" href="../asset/IMAGE/android-icon-192x192.png">
+    <script src="https://kit.fontawesome.com/225d5fd287.js" crossorigin="anonymous"></script>
+
     <title>création d'artcile</title>
 </head>
 <body>
@@ -31,6 +32,7 @@ if (isset($_POST['titre']) && isset($_POST['corp'])) {
             echo "<p class='error1'> Veuillez remplir tout les champs</p>";
         } else
             if (isset($_POST['catego'])) {
+                $article = $_POST['titre'] . '/' . $_POST['corp'];
                 $nom = $_POST['catego'];
                 $catego2 = new Categorie();
                 $idcatego = $catego2->getid($nom);
@@ -40,9 +42,11 @@ if (isset($_POST['titre']) && isset($_POST['corp'])) {
             }
     }
     ?>
+    <h1 class="titre">Créer un article</h1>
     <div class="container">
-        <img src="" alt="" class="gauche">
-        <form action="#" method="post">
+        <img src="../asset/IMAGE/createarticle.jpg" alt="casque" class="gauche">
+        <form action="#" method="post" class="articlecreate">
+            <label for="catego">Choix de la catégorie</label>
             <select name="catego" id="catego">
                 <?php
                 $catego = new Categorie();
@@ -58,7 +62,7 @@ if (isset($_POST['titre']) && isset($_POST['corp'])) {
             <label for="titre">Titre de l'article</label>
             <input type="text" name="titre" placeholder="Votre titre">
             <label for="corp">Article</label>
-            <textarea id="corp" name="corp" placeholder="Votre article" rows="5" cols="33"></textarea>
+            <textarea id="corp" name="corp" placeholder="Votre article" rows="20" cols="40"></textarea>
             <input type="submit" name="submit" value="Envoyer">
         </form>
         <img src="" alt="" class="droite">

@@ -19,7 +19,7 @@ if (isset($_POST['submit'])) {
 
 ?>
 <!doctype html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport"
@@ -28,9 +28,7 @@ if (isset($_POST['submit'])) {
     <link rel="stylesheet" href="../asset/CSS/header.css">
     <link rel="stylesheet" href="../asset/CSS/inscription.css">
     <link rel="icon" type="image/png" href="../asset/IMAGE/android-icon-192x192.png">
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
-    </style>
+    <script src="https://kit.fontawesome.com/225d5fd287.js" crossorigin="anonymous"></script>
     <title>Inscription</title>
 </head>
 <body>
@@ -39,7 +37,7 @@ if (isset($_POST['submit'])) {
 </header>
 <main>
 
-    <h1 class="titre">Rejoignez la Rams family!</h1>
+    <h1 class="titre">Inscription</h1>
     <div class="container">
         <img src="../asset/IMAGE/aaron-donald.jpg" alt="aaron-donald" class="gauche">
         <form action="#" method="post" class="inscription">

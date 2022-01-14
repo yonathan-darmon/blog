@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Nova+Slim&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display+SC:ital,wght@1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Oleo+Script+Swash+Caps&display=swap');
 
 * {
     margin: 0;
@@ -28,24 +28,22 @@ a {
     padding: 10px;
     border: 2px solid #082A66;
     border-radius: 5px;
-    height: 332px;
     font-family: 'Nova Slim', cursive;
     background-color: #FFD02B;
     color: #082A66;
-
 }
-.titre{
+
+.titre {
     font-size: 30px;
 }
-.corp {
-    height: 200px;
-}
-.login,.date{
+
+
+.login, .date {
     width: 200px;
-    height: 30px;
     padding: 10px;
     margin-left: 10px;
 }
+
 .article:hover {
     transform: scale(2) translate(10%);
 }
@@ -59,7 +57,6 @@ a {
 
 .chevron input {
     width: 5%;
-    height: 50px;
     background-color: transparent;
 
 }
@@ -68,7 +65,7 @@ a {
     display: flex;
     gap: 15px;
     justify-content: center;
-    margin-top:80px ;
+    margin-top: 80px;
     margin-bottom: 180px;
 }
 
@@ -93,7 +90,6 @@ a {
 .arriere {
     text-align: center;
     line-height: 1.8;
-    font-family: "Far From";
     font-size: x-large;
     color: #082A66;
     font-family: 'Nova Slim', cursive;
@@ -106,14 +102,21 @@ a {
 }
 
 .catego {
+    margin-top: 50px;
     line-height: 2rem;
     margin-left: 100px;
     list-style: none;
-    font-size: x-large;
+    font-size: 40px;
+    font-family: 'Oleo Script Swash Caps', cursive;
+
 }
 
 .catego li {
     list-style: none;
+}
+
+.catego li a {
+    font-size: 30px;
 }
 
 .catego:hover .cache {

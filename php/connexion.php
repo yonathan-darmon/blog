@@ -14,6 +14,8 @@ require "classes-categorie.php";
     <link rel="stylesheet" href="../asset/CSS/header.css">
     <link rel="stylesheet" href="../asset/CSS/connexion.css">
     <link rel="icon" type="image/png" href="../asset/IMAGE/android-icon-192x192.png">
+    <script src="https://kit.fontawesome.com/225d5fd287.js" crossorigin="anonymous"></script>
+
 
     <title>Connexion</title>
 </head>
@@ -36,6 +38,7 @@ require "classes-categorie.php";
 
     }
     ?>
+    <h1 class="titre">Connexion</h1>
     <div class="container">
         <img class="ball" src="../asset/IMAGE/ball.jpeg" alt="ballon">
         <form action="#" class="connect" method="post">
@@ -43,7 +46,7 @@ require "classes-categorie.php";
             <input type="text" name="login" placeholder="Votre login">
             <label for="password">Mot de passe</label>
             <input type="text" name="password" placeholder="Votre mot de passe">
-            <input type="submit" name="submit" value="Se connecter">
+            <input id="connexion" type="submit" name="submit" value="Se connecter">
         </form>
     </div>
 

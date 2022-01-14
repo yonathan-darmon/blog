@@ -36,7 +36,14 @@ $test2 = $_SESSION['categorie'];
     <aside>
 
         <ul>
-            <li class="catego">Categorie d'article
+            <li class="catego">Categorie d'article :
+                <?php
+                if (isset($_GET['categorie'])){
+                    $readcat=new Categorie();
+                    $read=$readcat->getAllInfoById($_GET['categorie']);
+                    echo $read['nom'];
+                }
+                ?>
                 <ul class="cache">
                     <?php
                     $catego2 = new Categorie();
@@ -59,7 +66,6 @@ $test2 = $_SESSION['categorie'];
                 $article = explode('/', $res[$i]['article']);
                 echo "<div class='article'>";
                 echo '<h1 class=titre><a href=article.php?id=' . $res[$i]['id'] . '>' . $article[0] . '</a></h1>';
-                echo '<p class=corp>' . $article[1] . '</p>';
                 if ($res[$i]['active'] == 0) {
                     echo '<p class= login>Ecrit par ' . $res[$i]['login'] . '</p>';
                     $date = strtotime($res[$i]['date']);

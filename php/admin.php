@@ -30,7 +30,9 @@ require "fonction.php";
     ?>
 </header>
 <main>
-    <form action="#" method="get">
+    <h1 class="titre">Page Admin</h1>
+    <form action="#" method="get" class="mod">
+        <label for="modification">Choix de la catégorie à modifier</label>
         <select name="modification" id="modification">
             <option value="articles">Articles</option>
             <option value="user">User</option>

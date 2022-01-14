@@ -64,7 +64,6 @@
     background-color: white;
     color: #082A66;
     width: 405px;
-    height: 435px;
     border-radius: 10px;
     padding: 15px;
     margin-top: 40px;
@@ -86,7 +85,6 @@
     background-color: white;
     border-radius: 10px;
     width: 300px;
-    height: 75px;
     padding: 15px;
     text-align: center;
     font-family: 'Nova Slim', cursive;
@@ -110,7 +108,6 @@
 .commentaire{
     background-color: #FFD02B;
     width: 665px;
-    height: 79px;
     margin-top: 30px;
     margin-bottom: 21px;
     border-radius: 10px;
@@ -139,7 +136,6 @@
     display: flex;
     background-color: #FFD02B;
     width: 982px;
-    height: 358px;
     margin-top: 114px;
     margin-bottom: 50px;
     border-radius: 15px;
@@ -151,8 +147,8 @@
     width: 509px;
 }
 .newlogo{
-    width: 15%;
-    height: 200px;
+    width: 30%;
+    object-fit: contain;
     margin-top: 90px;
     border-radius: 15px;
 }
