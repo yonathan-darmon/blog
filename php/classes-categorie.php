@@ -8,7 +8,7 @@ class Categorie
 
     public function __construct()
     {
-        $this->pdo = new PDO('mysql:host=localhost;dbname=blog', 'root');
+        $this->pdo = new PDO('mysql:host=localhost:3306;dbname=yonathan-darmon_blog', 'yonathan-darmon','071187061283Darmon@');
     }
 
     public function getcatego()

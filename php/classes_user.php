@@ -11,7 +11,7 @@ class User
 
     public function __construct()
     {
-        $this->pdo = new PDO('mysql:host=localhost;dbname=blog', 'root');
+        $this->pdo = new PDO('mysql:host=localhost:3306;dbname=yonathan-darmon_blog', 'yonathan-darmon','071187061283Darmon@');
     }
 
     public function register($login, $password, $email)
@@ -72,7 +72,7 @@ class User
     {
         if (isset($_SESSION)) {
             session_unset();
-            header("location:/blog/blog/php/connexion.php");
+            header("location:https://yonathan-darmon.students-laplateforme.io/index.php");
         }
     }
 

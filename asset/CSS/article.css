@@ -98,11 +98,17 @@
 }
 .cardcom{
     display: flex;
+    flex-direction: column;
     border: #082A66 solid 5px;
     border-radius: 10px;
     margin-top: 114px;
     width: 982px;
     margin-left: 244px;
+}
+.box4{
+    display: flex;
+    border-bottom: 5px solid #082A66;
+
 }
 .commentaire{
     background-color: #FFD02B;

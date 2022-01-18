@@ -3,7 +3,7 @@
         <ul>
             <li><a href="../index.php">Accueil</a></li>
 
-            <li><a href="articles.php?start=0">Article</a></li>
+            <li><a href="articles.php?start=0&categorie=0">Article</a></li>
             <?php
             if (!isset($_SESSION['id'])) {
                 echo "<li><a href='inscription.php'>Inscription</a></li>";
@@ -15,10 +15,10 @@
             if (isset($_SESSION['id'])) {
                 $res = $test->getAllInfoForOneUser($_SESSION['login']);
                 if ($res['id_droits'] == 42 || $res['id_droits'] == 1337) {
-                    echo "<li><a href='http://localhost/blog/blog/php/creer-article.php'>Créer un article</a></li>";
+                    echo "<li><a href='creer-article.php'>Créer un article</a></li>";
                 }
                 if ($res['id_droits'] == 1337) {
-                    echo "<li><a href='http://localhost/blog/blog/php/admin.php'>Page Admin</a></li>";
+                    echo "<li><a href='admin.php'>Page Admin</a></li>";
 
                 }
             }
@@ -30,7 +30,7 @@
             <p>En savoir plus sur ce projet</p>
             <a href="https://github.com/yonathan-darmon"><i class="fab fa-github fa-8x"></i></a>
         </div>
-            <img class="logobas" src="http://localhost/blog/blog/asset/IMAGE/la-rams-logo-1.png" alt="logo">
+            <img class="logobas" src="../asset/IMAGE/la-rams-logo-1.png" alt="logo">
     </div>
     <p class="right">All rights reserved | Copyright 2021 - 2022 | Created by Yonathan Darmon </p>
 </nav>

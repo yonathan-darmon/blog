@@ -65,6 +65,7 @@ require "classe-commentaire.php";
                 <?php
                 for ($i = 0; isset($com[$i]); $i++) {
                     $commentaire = explode('/', $com[$i]['commentaire']);
+                    echo "<div class='box4'>";
                     echo "<div class='infos2'>";
                     echo "<p>Titre: $commentaire[0]</p>";
                     if ($com[$i]['active'] == 0) {
@@ -78,6 +79,7 @@ require "classe-commentaire.php";
                     }
                     echo "</div>";
                     echo "<p class='commentaire'>$commentaire[1]</p>";
+                    echo "</div>";
 
                 }
 
