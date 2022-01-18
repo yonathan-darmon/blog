@@ -138,7 +138,7 @@ class User
     {
         $sth = $this->pdo->prepare("SELECT * FROM utilisateurs WHERE id=$id");
         $sth->execute();
-        $res = $sth->fetch();
+        $res = $sth->fetchAll(PDO::FETCH_ASSOC);
         return $res;
     }
 

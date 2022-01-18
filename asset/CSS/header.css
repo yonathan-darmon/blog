@@ -24,7 +24,7 @@ nav li a {
     color: white;
     font-size: 30px;
     font-family: 'Nova Slim', cursive;
-    width: 166px;
+    width: 10%;
 
 }
 
@@ -126,4 +126,9 @@ i {
     text-align: center;
     font-family: 'Nova Slim', cursive;
 
+}
+@media (min-width: 320px) and (max-width: 760px ) {
+    nav ul .main{
+        flex-direction: column;
+    }
 }

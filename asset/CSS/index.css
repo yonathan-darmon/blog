@@ -14,18 +14,29 @@ main {
 
 .welcome {
     font-family: 'Oleo Script Swash Caps', cursive;
-    font-size: 63px;
+    font-size: 3rem;
     text-align: center;
+    padding-top: 5%;
 }
-main img{
+
+main img {
     border: 9px solid #082A66;
     align-self: center;
-    width: 953px;
-    height: 536px;
-    margin-left: 275px;
-    margin-bottom: 25px;
+    width: 80%;
+    margin-left: 10%;
+    margin-bottom: 5%;
 }
 
 footer {
     width: 100%;
+}
+
+@media (min-width: 320px) and (max-width: 767px) {
+    .welcome{
+        font-size: 2rem;
+        padding-top: 13%;
+    }
+    main{
+        min-height: 50vh;
+    }
 }

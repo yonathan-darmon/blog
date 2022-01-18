@@ -121,18 +121,12 @@ function admin($get)
 	<div class="box2">
 
 	<?php
-	if (isset($_POST['login'])) {
-		if (isset($_POST['id_select'])){
-		 if(isset($_SESSION['id_select'])){
-			unset($_SESSION['id_select']);
-		 }
+
 		$_SESSION['id_select']=$_POST['id_select'];
-		}
 		$droits = new Droits();
 		$droits1 = $droits->getDroits();
 		if ($_GET['modification'] == "user" && isset($entitycontent)) {
            echo"<form action='#' method='post' class='modif'>";
-
 			foreach ($entitycontent as $key => $value) {
 				echo "<label for='login' >Login</label>";
 				echo "<input name='login' type='text' value='$value[login]' readonly>";
@@ -231,9 +225,8 @@ function admin($get)
             }
 
         }
-
-	}
     echo "</div>";
+
 }
 
 ?>

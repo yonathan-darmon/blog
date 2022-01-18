@@ -29,7 +29,7 @@ class Categorie
     {
         $sth = $this->pdo->prepare("SELECT * FROM categories WHERE categories.id=$id");
         $sth->execute();
-        $catego= $sth->fetch(PDO::FETCH_ASSOC);
+        $catego= $sth->fetchall(PDO::FETCH_ASSOC);
         return$catego;
     }
     public function getAllCatego()
