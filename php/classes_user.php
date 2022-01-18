@@ -26,9 +26,11 @@ class User
         $res = $req->fetch(PDO::FETCH_ASSOC);
         if ($res == false) {
             try {
-                $sth = $this->pdo->prepare("INSERT INTO utilisateurs(login, password, email, id_droits) VALUES (?,?,?,?)");
+                $sth = $this->pdo->prepare("INSERT INTO utilisateurs (login, password, email, id_droits, active) VALUES (?,?,?,?,?)");
                 $droits = 1;
-                $sth->execute(array($login, password_hash($password, PASSWORD_DEFAULT), $email, $droits));
+                $passwordprotect= password_hash($password, PASSWORD_DEFAULT);
+                $active=0;
+                $sth->execute(array($login, $passwordprotect, $email, $droits, $active));
                 $confirmation = '<p class="confirmation">Bienvenue ' . $_POST['login'] . ' dans la Rams Family</p>';
                 echo $confirmation;
             } catch (Exception $e) {
@@ -78,7 +80,7 @@ class User
     {
         $sth = $this->pdo->prepare("SELECT login FROM utilisateurs WHERE login='$login' ");
         $sth->execute();
-        return $sth->fetchAll(PDO::FETCH_ASSOC);
+        return $sth->fetch();
 
     }
 
@@ -86,15 +88,16 @@ class User
     {
         $sth = $this->pdo->prepare("SELECT * FROM utilisateurs WHERE login='$login'");
         $sth->execute();
-        return $sth->fetchAll(PDO::FETCH_ASSOC);
+        return $sth->fetch();
 
     }
 
     public function update($login, $password, $email)
     {
 
-        $res3 = $this->getLogin($login);
-        if (empty($res3)) {
+        $res3 = $this->getAllInfoById($_SESSION['id']);
+        $res4 = $this->getLogin($login);
+        if (empty($res4) || $res3['login']==$login) {
 
             $log = $_SESSION['login'];
             $sth = $this->pdo->prepare("SELECT id FROM utilisateurs WHERE login='$log'");
@@ -135,7 +138,7 @@ class User
     {
         $sth = $this->pdo->prepare("SELECT * FROM utilisateurs WHERE id=$id");
         $sth->execute();
-        $res = $sth->fetchAll(PDO::FETCH_ASSOC);
+        $res = $sth->fetch();
         return $res;
     }
 

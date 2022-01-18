@@ -7,7 +7,7 @@ require "classe-droits.php";
 $info = new User();
 $res4 = $info->getAllInfoForOneUser($_SESSION['login']);
 $droits = new Droits();
-$res5 = $droits->getDroits($res4[0]['id_droits']);
+$res5 = $droits->getDroits($res4['id_droits']);
 
 ?>
 <!doctype html>
@@ -48,9 +48,9 @@ $res5 = $droits->getDroits($res4[0]['id_droits']);
         <img src="../asset/IMAGE/sean.jpg" alt="McVay" class="gauche">
         <form action="#" method="post" class="inscription">
             <label for="login">Nom d'utilisateur</label>
-            <input type="text" name="login" value="<?php echo $res4[0]['login']; ?>">
+            <input type="text" name="login" value="<?php echo $res4['login']; ?>">
             <label for="email">Votre Email</label>
-            <input type="text" name="email" value="<?php echo $res4[0]['email']; ?>">
+            <input type="text" name="email" value="<?php echo $res4['email']; ?>">
             <label for="password">Mot de passe</label>
             <input type="password" name="password" placeholder="Votre mot de passe">
             <label for="confirm">Confirmation de votre mot de passe</label>

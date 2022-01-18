@@ -85,6 +85,10 @@ require "classe-commentaire.php";
             </div>
         </div>
     </div>
+    <?php
+    if (isset($_SESSION['id'])):
+
+    ?>
         <form action="#" method="post" class="insertcom">
             <div class="box3">
             <p class="leavecom">Laissez un commentaire</p>
@@ -96,6 +100,9 @@ require "classe-commentaire.php";
             </div>
             <img src="../asset/IMAGE/belier.jpg" alt="logo" class="newlogo">
         </form>
+    <?php
+    endif;
+    ?>
 </main>
 <footer>
     <?php

@@ -26,4 +26,12 @@ class Droits
         $res = $sth->fetchAll(PDO::FETCH_ASSOC);
         return $res;
     }
+
+    public function getDroitsByName($nom)
+    {
+        $sth=$this->pdo->prepare("SELECT id FROM droits WHERE nom='$nom'");
+        $sth->execute();
+        $res= $sth->fetch();
+        return $res;
+    }
 }

@@ -45,7 +45,7 @@ a {
 }
 
 .article:hover {
-    transform: scale(2) translate(10%);
+    transform: scale(1.5) translate(10%);
 }
 
 

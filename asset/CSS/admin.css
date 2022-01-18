@@ -20,12 +20,17 @@ main {
     font-size: 40px;
     font-family: 'Oleo Script Swash Caps', cursive;
 }
-.mod{
+.mod, .id_select{
     display: flex;
     flex-direction: column;
+    width: 30%;
+    margin-left: 20px;
+    background-color: #FFD02B;
+    padding: 35px;
+    border-radius: 20px;
 }
 .mod input, select{
-    width: 20%;
+    width: 40%;
 }
 table, th, td {
     border: solid 2px #003594;

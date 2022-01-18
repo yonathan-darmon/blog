@@ -26,7 +26,9 @@ function admin($get)
 
 					$user=new User();
 					$userinfo=$user->getAllInfoById($_SESSION['id_select']);
-						$user->updateAdmin($_SESSION['id_select'], $userinfo[0]['id_droits'], $_POST['active']);
+                    $droits=new Droits();
+                    $droits2=$droits->getDroitsByName($_POST['id_droits']);
+						$user->updateAdmin($_SESSION['id_select'], $droits2['id'], $_POST['active']);
                                              header("Refresh:3, URL=admin.php");
 
                  }
@@ -103,7 +105,7 @@ function admin($get)
 
 	echo "</table>";
 	?>
-	<form action="#" method="post">
+	<form action="#" method="post" class="id_select">
 		<select name="id_select" id="id_select">
 			<?php
 			for ($i = 0; $entityinfo[$i]; $i++) {

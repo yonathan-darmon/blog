@@ -13,11 +13,11 @@
             }
             $test = new User();
             if (isset($_SESSION['id'])) {
-                $res = $test->getAllInfo($_SESSION['login']);
-                if ($res[0]['id_droits'] == 42 || $res[0]['id_droits'] == 1337) {
+                $res = $test->getAllInfoForOneUser($_SESSION['login']);
+                if ($res['id_droits'] == 42 || $res['id_droits'] == 1337) {
                     echo "<li><a href='http://localhost/blog/blog/php/creer-article.php'>Créer un article</a></li>";
                 }
-                if ($res[0]['id_droits'] == 1337) {
+                if ($res['id_droits'] == 1337) {
                     echo "<li><a href='http://localhost/blog/blog/php/admin.php'>Page Admin</a></li>";
 
                 }
