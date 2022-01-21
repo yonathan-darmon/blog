@@ -121,10 +121,8 @@ function admin($get)
 	<div class="box2">
 
 	<?php
-    if(isset($_POST['id_select'])){
-    		$_SESSION['id_select']=$_POST['id_select'];
 
-}
+		$_SESSION['id_select']=$_POST['id_select'];
 		$droits = new Droits();
 		$droits1 = $droits->getDroits();
 		if ($_GET['modification'] == "user" && isset($entitycontent)) {
@@ -201,8 +199,8 @@ function admin($get)
                             echo "<textarea name='corp' cols='5' rows='5'>$comment[1]</textarea>";
                             echo "<input type='submit' name='update' value='modifier'>";
                             echo "<input type='submit' name='delete' value='Supprimer le commentaire'>";
-                            echo "</form>";
                             }
+                            echo "</form>";
                             echo "<div class='displayarticle'>";
                             echo "<p> Ce commentaire correspond à l'article suivant:</p>";
                             $article=new Article();

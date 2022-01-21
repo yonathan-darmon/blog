@@ -44,9 +44,17 @@ class Commentaire
         return$res;
     }
 
+    public function getCombWithId($get)
+    {
+        $sth=$this->pdo->prepare("SELECT * FROM commentaires WHERE id=$get");
+        $sth->execute();
+        $res=$sth->fetchAll(PDO::FETCH_ASSOC);
+        return $res;
+
+}
     public function getComById($get)
     {
-        $sth=$this->pdo->prepare("SELECT * FROM commentaires WHERE id_article=$get");
+        $sth=$this->pdo->prepare("SELECT * FROM commentaires WHERE id=$get");
         $sth->execute();
         $res=$sth->fetchAll(PDO::FETCH_ASSOC);
         return$res;
