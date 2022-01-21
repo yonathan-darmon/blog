@@ -49,9 +49,9 @@
     display: flex;
     background-color: #082A66;
     justify-content: space-around;
-    width: 982px;
+    width: 80%;
     min-height: 50vh;
-    margin-left: 244px;
+    margin-left: 10%;
     margin-top: 80px;
 }
 
@@ -84,45 +84,55 @@
 .infos p {
     background-color: white;
     border-radius: 10px;
-    width: 300px;
+    width: 100%;
     padding: 15px;
     text-align: center;
     font-family: 'Nova Slim', cursive;
     font-size: 20px;
+    margin-bottom: 5%;
 }
 
 .infos img {
     width: 50%;
-    margin-left: 86px;
+    margin-left: 25%;
+    margin-bottom: 5%;
 
 }
-.cardcom{
+
+.cardcom {
     display: flex;
     flex-direction: column;
     border: #082A66 solid 5px;
     border-radius: 10px;
-    margin-top: 114px;
-    width: 982px;
-    margin-left: 244px;
+    margin-top: 25%;
+    width: 80%;
+    margin-left: 10%;
+    margin-bottom: 5%;
 }
-.box4{
+
+.box4 {
     display: flex;
     border-bottom: 5px solid #082A66;
+    justify-content: space-evenly;
+    margin-right: 3%;
+    margin-left: 3%;
 
 }
-.commentaire{
+
+.commentaire {
     background-color: #FFD02B;
-    width: 665px;
-    margin-top: 30px;
-    margin-bottom: 21px;
+    width: 60%;
+    margin-top: 5%;
+    margin-bottom: 5%;
     border-radius: 10px;
-    padding: 15px;
-    font-size: 25px;
+    padding: 3%;
+    font-size: 1em;
     font-family: 'Nova Slim', cursive;
 
 
 }
-.infos2{
+
+.infos2 {
     padding: 15px;
     margin-top: 21px;
     margin-bottom: 21px;
@@ -130,33 +140,60 @@
     font-family: 'Nova Slim', cursive;
 
 }
-.box3{
+
+.box3 {
     display: flex;
     flex-direction: column;
     gap: 20px;
     padding: 15px;
 
 }
-.insertcom{
+
+.insertcom {
     display: flex;
     background-color: #FFD02B;
-    width: 982px;
+    width: 80%;
     margin-top: 114px;
     margin-bottom: 50px;
     border-radius: 15px;
     font-family: 'Nova Slim', cursive;
-    margin-left: 244px;
+    margin-left: 10%;
     justify-content: space-evenly;
 }
-.insertcom input, textarea{
-    width: 509px;
+
+.insertcom input, textarea {
+    width: 100%;
 }
-.newlogo{
+
+.newlogo {
     width: 30%;
     object-fit: contain;
-    margin-top: 90px;
+    margin-top: 3%;
     border-radius: 15px;
 }
-.leavecom{
-    font-size: 35px;
+
+.leavecom {
+    font-size: 2em;
+}
+
+@media (min-width: 0px) and (max-width: 780px ) {
+
+    .cardarticle {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin-left: 10%;
+    }
+    .corp {
+        width: 85%;
+    }
+.infos{
+    width: 60%;
+}
+    .cardcom {
+        width: 90%;
+        margin-left: 5%;
+    }
+
 }

@@ -21,8 +21,9 @@ require "php/classe_article.php";
 <body>
 <header>
     <nav class="header">
+        <img class="logo" src="asset/IMAGE/la-rams-logo-1.png" alt="">
         <ul class="main">
-            <img class="logo" src="asset/IMAGE/la-rams-logo-1.png" alt="">
+
             <li><a href="index.php">Accueil</a></li>
 
             <li class="dropdown"><a href="php/articles.php?start=0&categorie=0">Articles</a>
@@ -102,8 +103,8 @@ require "php/classe_article.php";
 
             </ul>
             <div class="projet">
-                <p>En savoir plus sur ce projet</p>
-                <a href="https://github.com/yonathan-darmon"><i class="fab fa-github fa-8x"></i></a>
+                <a href="https://github.com/yonathan-darmon"><p>En savoir plus sur ce projet</p>
+                    <i class="fab fa-github fa-4x"></i></a>
             </div>
             <img class="logobas" src="/asset/IMAGE/la-rams-logo-1.png" alt="logo">
         </div>

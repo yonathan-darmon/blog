@@ -27,8 +27,8 @@
 
         </ul>
         <div class="projet">
-            <p>En savoir plus sur ce projet</p>
-            <a href="https://github.com/yonathan-darmon"><i class="fab fa-github fa-8x"></i></a>
+            <a href="https://github.com/yonathan-darmon"><p>En savoir plus sur ce projet</p>
+            <i class="fab fa-github fa-4x"></i></a>
         </div>
             <img class="logobas" src="../asset/IMAGE/la-rams-logo-1.png" alt="logo">
     </div>

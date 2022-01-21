@@ -14,7 +14,7 @@ main {
 
 .welcome {
     font-family: 'Oleo Script Swash Caps', cursive;
-    font-size: 3rem;
+    font-size: 2rem;
     text-align: center;
     padding-top: 5%;
 }
@@ -30,13 +30,18 @@ main img {
 footer {
     width: 100%;
 }
+a{
+    list-style: none;
+    color: white;
+}
 
 @media (min-width: 320px) and (max-width: 767px) {
     .welcome{
-        font-size: 2rem;
+        font-size: 1rem;
         padding-top: 13%;
     }
     main{
         min-height: 50vh;
     }
+
 }
