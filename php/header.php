@@ -1,6 +1,6 @@
 <nav class="header">
+    <img class="logo" src="../asset/IMAGE/la-rams-logo-1.png" alt="">
     <ul class="main">
-        <img class="logo" src="../asset/IMAGE/la-rams-logo-1.png" alt="">
         <li><a href="../index.php">Accueil</a></li>
 
         <li class="dropdown"><a href="articles.php?start=0&categorie=0">Articles</a>
