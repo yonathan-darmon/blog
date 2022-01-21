@@ -185,15 +185,23 @@
         align-items: center;
         margin-left: 10%;
     }
+
     .corp {
         width: 85%;
     }
-.infos{
-    width: 60%;
-}
+
+    .infos {
+        width: 60%;
+    }
+
     .cardcom {
         width: 90%;
         margin-left: 5%;
     }
 
-}
+    .newlogo {
+        display: none;
+    }
+
+
+    }

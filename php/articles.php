@@ -41,7 +41,7 @@ $test2 = $_SESSION['categorie'];
                 if (isset($_GET['categorie'])){
                     $readcat=new Categorie();
                     $read=$readcat->getAllInfoById($_GET['categorie']);
-                    echo $read['nom'];
+                    echo $read[0]['nom'];
                 }
                 ?>
                 <ul class="cache">
@@ -49,7 +49,7 @@ $test2 = $_SESSION['categorie'];
                     $catego2 = new Categorie();
                     $cat2 = $catego2->getcatego();
                     for ($i = 0; isset($cat2[$i]); $i++) {
-                        echo '<li><a href="http://localhost/blog/blog/php/articles.php?start=' . $test3 . '&categorie=' . $cat2[$i]['id'] . '">' . $cat2[$i]['nom'] . '</a></li>';
+                        echo '<li><a href="https://yonathan-darmon.students-laplateforme.io/php/articles.php?start=' . $test3 . '&categorie=' . $cat2[$i]['id'] . '">' . $cat2[$i]['nom'] . '</a></li>';
                     }
                     ?>
                 </ul>
