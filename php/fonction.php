@@ -121,8 +121,10 @@ function admin($get)
 	<div class="box2">
 
 	<?php
+    if(isset($_POST['id_select'])){
+    		$_SESSION['id_select']=$_POST['id_select'];
 
-		$_SESSION['id_select']=$_POST['id_select'];
+}
 		$droits = new Droits();
 		$droits1 = $droits->getDroits();
 		if ($_GET['modification'] == "user" && isset($entitycontent)) {

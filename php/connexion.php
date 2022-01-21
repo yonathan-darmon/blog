@@ -45,7 +45,7 @@ require "classes-categorie.php";
             <label for="login">Nom d'utilisateur</label>
             <input type="text" name="login" placeholder="Votre login">
             <label for="password">Mot de passe</label>
-            <input type="text" name="password" placeholder="Votre mot de passe">
+            <input type="password" name="password" placeholder="Votre mot de passe">
             <input id="connexion" type="submit" name="submit" value="Se connecter">
         </form>
     </div>

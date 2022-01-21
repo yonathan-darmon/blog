@@ -11,7 +11,7 @@ if (isset($_POST['submit'])) {
     } else {
         $register = new User();
         $register->register($_POST['login'], $_POST['password'], $_POST['email']);
-        header('Refresh 3, url=connexion.php');
+        header('Refresh:3, URL=./connexion.php');
 
 
     }

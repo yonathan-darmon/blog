@@ -65,21 +65,20 @@ main {
 .container {
     display: flex;
     width: 100%;
-    gap: 50px;
     padding-top: 50px;
+    justify-content: space-evenly;
 
 }
 
 .gauche {
     width: 40%;
-    margin-left: 74px;
 }
 
 .inscription {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
-    width: 500px;
+    width: 45%;
     gap: 20px;
     color: #082A66;
     font-size: 2rem;
@@ -88,8 +87,6 @@ main {
     background-color: #FFD02B;
     padding: 15px;
     border-radius: 15px;
-    margin-right: 50px;
-    margin-left: 100px;
 
 }
 
@@ -106,5 +103,13 @@ main {
     background-color: #082A66;
     font-family: 'Nova Slim', cursive;
 
+
+}@media (min-width: 0px) and (max-width: 780px ) {
+    .gauche {
+        display: none;
+    }
+    .inscription {
+        width: 90%;
+    }
 
 }
