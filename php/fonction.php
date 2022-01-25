@@ -191,7 +191,7 @@ function admin($get)
 		}
         elseif ($_GET['modification']== "commentaire" && isset($entitycontent)) {
                         echo"<form action='#' method='post' class='modif'>";
-                        /*foreach ($entitycontent as $key => $value) {
+                        foreach ($entitycontent as $key => $value) {
                             $comment=explode('/', $value['commentaire']);
                             echo "<label for='titre'>Titre du commentaire</label>";
                             echo "<input type='text' name='titre' value='$comment[0]'>";
@@ -200,7 +200,7 @@ function admin($get)
                             echo "<input type='submit' name='update' value='modifier'>";
                             echo "<input type='submit' name='delete' value='Supprimer le commentaire'>";
                             }
-                            echo "</form>";*/
+                            echo "</form>";
                             echo "<div class='displayarticle'>";
                             echo "<p> Ce commentaire correspond à l'article suivant:</p>";
                             $article=new Article();

@@ -26,6 +26,7 @@ main {
     flex-direction: column;
     width: 50%;
     margin-left: 20px;
+    margin-bottom: 20px;
     background-color: #FFD02B;
     padding: 35px;
     border-radius: 20px;
@@ -35,8 +36,19 @@ main {
     width: 40%;
 }
 
-table, th, td {
+table{
     border: solid 2px #003594;
+    border-radius: 15px;
+    border-collapse: collapse;
+    max-width: 90%;
+    margin: 0 auto;
+}
+
+th, td {
+    border: solid 2px #003594;
+}
+td{
+    padding: 5px;
 }
 
 th, td .article {
@@ -164,4 +176,8 @@ label {
     }
 
 }
+.id_select{
+    margin-top: 20px;
+}
+
 
