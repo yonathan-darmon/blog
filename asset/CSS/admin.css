@@ -63,7 +63,7 @@ table. article {
     overflow: scroll;
 }
 
-.modif {
+.modif,.create {
     display: flex;
     flex-direction: column;
     width: 30%;

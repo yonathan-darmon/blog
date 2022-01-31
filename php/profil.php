@@ -7,8 +7,7 @@ require "classe-droits.php";
 $info = new User();
 $res4 = $info->getAllInfoForOneUser($_SESSION['login']);
 $droits = new Droits();
-$res5 = $droits->getDroits($res4['id_droits']);
-
+$res5 = $droits->getDroitsById($res4['id_droits']);
 ?>
 <!doctype html>
 <html lang="en">

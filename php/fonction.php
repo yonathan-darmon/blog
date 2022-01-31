@@ -10,9 +10,9 @@ function admin($get)
     }
     if (isset($_POST['create'])){
         $create=new Categorie();
-        $nom=$create->getCategoByName($_POST['nom']);
-        if($nom['nom']!=$_POST['nom']){
-              $create->create($_POST['nom']);
+        $nom=$create->getCategoByName($_POST['nom2']);
+        if($nom['nom']!=$_POST['nom2']){
+              $create->create($_POST['nom2']);
               header("Refresh:3, URL=admin.php");
         }else{
             echo "<p class='error1'> Ce nom de catégorie existe déjà</p>";
@@ -104,7 +104,17 @@ function admin($get)
 
 
 	echo "</table>";
+    if ($_GET['modification']="categorie"){
+
+         echo "<form action='#' method='post' class='create'>";
+         echo "<h3>Créer une catégorie</h3>";
+                echo "<label for='nom2'>Nom de la catégorie</label>";
+                echo "<input type='text' name='nom2' placeholder='nouvelle catégorie'>";
+                echo "<input type='submit' name='create' value='creer une categorie'>";
+                echo "</form>";
+                }
 	?>
+
 	<form action="#" method="post" class="id_select">
 		<select name="id_select" id="id_select">
 			<?php
@@ -218,8 +228,8 @@ function admin($get)
                 echo "<label for='nom'>Nom de la catégorie</label>";
                 echo "<input name='nom' value='$value[nom]'>";
                 echo "<input type='submit' name='update' value='modifier'>";
-                echo "<input type='submit' name='create' value='creer une categorie'>";
                 echo "</form>";
+
 
 
             }

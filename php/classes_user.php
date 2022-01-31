@@ -94,11 +94,10 @@ class User
 
     public function update($login, $password, $email)
     {
-
+/*
         $res3 = $this->getAllInfoById($_SESSION['id']);
         $res4 = $this->getLogin($login);
-        if (empty($res4) || $res3['login']==$login) {
-
+        if (empty($res4) || $res3['login']==$login) {*/
             $log = $_SESSION['login'];
             $sth = $this->pdo->prepare("SELECT id FROM utilisateurs WHERE login='$log'");
             $sth->execute();
@@ -119,9 +118,9 @@ class User
             }
 
 
-        } else {
+       /* } else {
             echo "<p class='error1'>Ce login existe déjà</p>";
-        }
+        }*/
     }
 
     public
