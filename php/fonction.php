@@ -83,6 +83,21 @@ function admin($get)
 	} else {
 		die();
 	}
+    ?>
+    	<form action="#" method="post" class="id_select">
+		<select name="id_select" id="id_select">
+			<?php
+			for ($i = 0; $entityinfo[$i]; $i++) {
+				echo '<option value=' . $entityinfo[$i]['id'] . '>' . $entityinfo[$i]['id'] . '</option>';
+			}
+
+
+			?>
+		</select>
+		<input type="submit" name="login" value="choix">
+
+	</form>
+    <?php
 	echo "<table class='$get'>";
 
 	echo "<tr>";
@@ -104,30 +119,10 @@ function admin($get)
 
 
 	echo "</table>";
-    if ($_GET['modification']="categorie"){
 
-         echo "<form action='#' method='post' class='create'>";
-         echo "<h3>Créer une catégorie</h3>";
-                echo "<label for='nom2'>Nom de la catégorie</label>";
-                echo "<input type='text' name='nom2' placeholder='nouvelle catégorie'>";
-                echo "<input type='submit' name='create' value='creer une categorie'>";
-                echo "</form>";
-                }
 	?>
 
-	<form action="#" method="post" class="id_select">
-		<select name="id_select" id="id_select">
-			<?php
-			for ($i = 0; $entityinfo[$i]; $i++) {
-				echo '<option value=' . $entityinfo[$i]['id'] . '>' . $entityinfo[$i]['id'] . '</option>';
-			}
 
-
-			?>
-		</select>
-		<input type="submit" name="login" value="choix">
-
-	</form>
 	<div class="box2">
 
 	<?php
@@ -135,6 +130,15 @@ function admin($get)
 		$_SESSION['id_select']=$_POST['id_select'];
 		$droits = new Droits();
 		$droits1 = $droits->getDroits();
+        if ($_GET['modification'] == "categories") {
+
+           echo "<form action='#' method='post' class='create'>";
+                echo "<h3>Créer une catégorie</h3>";
+                echo "<label for='nom2'>Nom de la catégorie</label>";
+                echo "<input type='text' name='nom2' placeholder='nouvelle catégorie'>";
+                echo "<input type='submit' name='create' value='creer une categorie'>";
+                echo "</form>";
+        }
 		if ($_GET['modification'] == "user" && isset($entitycontent)) {
            echo"<form action='#' method='post' class='modif'>";
 			foreach ($entitycontent as $key => $value) {
@@ -229,9 +233,6 @@ function admin($get)
                 echo "<input name='nom' value='$value[nom]'>";
                 echo "<input type='submit' name='update' value='modifier'>";
                 echo "</form>";
-
-
-
             }
 
         }
