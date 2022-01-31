@@ -131,9 +131,12 @@
 
 
 }
-#1 a{
+.com{
     color: black;!important;
     text-decoration: none;
+    background-color: #FFD02B;
+    padding: 5px;
+    border-radius: 5px;
 }
 .infos2 {
     padding: 15px;

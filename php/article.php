@@ -60,7 +60,11 @@ require "classe-commentaire.php";
                     <p>Ecrit par <?php echo $text['login']; ?></p>
                     <img src="../asset/IMAGE/Rams_de_LA_casque.png" alt="casque des rams">
                     <p>Le <?php echo date('d/m/Y', $date2); ?> </p>
-                    <p><a href="#1" class="com">Laissez un commentaire</a></p>
+                    <?php
+                    if(isset($_SESSION['id'])){
+                        echo"<a href='#1' class='com'>Laissez un commentaire</a>";
+                    }
+                    ?>
 
                 </div>
             </div>
