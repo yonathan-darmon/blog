@@ -54,11 +54,14 @@ require "classe-commentaire.php";
                 <div class="corp">
                     <h1 class="titre"><?php echo $article[0]; ?></h1>
                     <p class="article"><?php echo $article[1]; ?></p>
+
                 </div>
                 <div class="infos">
                     <p>Ecrit par <?php echo $text['login']; ?></p>
                     <img src="../asset/IMAGE/Rams_de_LA_casque.png" alt="casque des rams">
                     <p>Le <?php echo date('d/m/Y', $date2); ?> </p>
+                    <p><a href="#1" class="com">Laissez un commentaire</a></p>
+
                 </div>
             </div>
             <div class="cardcom">
@@ -92,7 +95,7 @@ require "classe-commentaire.php";
 
     ?>
         <form action="#" method="post" class="insertcom">
-            <div class="box3">
+            <div class="box3" id="1">
             <p class="leavecom">Laissez un commentaire</p>
             <label for="titre">Titre du commentaire</label>
             <input type="text" name="titre" placeholder="votre titre">

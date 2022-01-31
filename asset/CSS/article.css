@@ -52,7 +52,7 @@
     width: 80%;
     min-height: 50vh;
     margin-left: 10%;
-    margin-top: 80px;
+    margin-top: 30px;
 }
 
 .titre {
@@ -104,7 +104,7 @@
     flex-direction: column;
     border: #082A66 solid 5px;
     border-radius: 10px;
-    margin-top: 15%;
+    margin-top: 5%;
     width: 80%;
     margin-left: 10%;
     margin-bottom: 5%;
@@ -131,7 +131,10 @@
 
 
 }
-
+#1 a{
+    color: black;!important;
+    text-decoration: none;
+}
 .infos2 {
     padding: 15px;
     margin-top: 21px;
@@ -153,7 +156,7 @@
     display: flex;
     background-color: #FFD02B;
     width: 80%;
-    margin-top: 114px;
+    margin-top: 5%;
     margin-bottom: 50px;
     border-radius: 15px;
     font-family: 'Nova Slim', cursive;

@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Nova+Slim&display=swap');
 .header{
     width: 100%;
-    min-height: 179px;
+    min-height: 115px;
     background: #082A66;
     display: flex;
     justify-content: flex-end;
@@ -26,7 +26,7 @@ nav li a {
 
     text-decoration: none;
     color: white;
-    font-size: 30px;
+    font-size: 25px;
     font-family: 'Nova Slim', cursive;
 }
 
@@ -76,7 +76,7 @@ nav li a:hover {
     border-radius: 5px;
     background: transparent;
     border: none;
-    font-size: 30px;
+    font-size: 25px;
     font-family: 'Nova Slim', cursive;
     width: 200px;
 }
